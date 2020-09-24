@@ -1,0 +1,29 @@
+.checkboxWrapper {
+	display: block;
+	color: var(--blue-secondary);
+	font-size: 1.5rem;
+	line-height: 1;
+	padding: 0.625rem 0;
+	border: var(--blue-secondary) 0.3vw solid;
+	transition: all 0.1s ease;
+	user-select: none;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&.checked {
+		background-color: var(--blue-secondary);
+		color: white;
+	}
+
+	.checkbox {
+		display: none;
+		box-sizing: border-box;
+		padding: 0;
+	}
+
+	.checkboxLabel {
+		margin: 0;
+	}
+}
