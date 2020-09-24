@@ -108,18 +108,66 @@ export const HIRAGANA_MAPPING = [
 			}
 		},
 		dakutenCombination: {
-			kyGroup: {},
-			shGroup: {},
-			chGroup: {},
-			nyGroup: {},
-			hyGroup: {},
-			myGroup: {},
-			ryGroup: {},
-			gyGroup: {},
-			jGroup: {},
-			dyGroup: {},
-			byGroup: {},
-			pyGroup: {}
+			kyGroup: {
+				kya: "きゃ",
+				kyu: "きゅ",
+				kyo: "きょ"
+			},
+			shGroup: {
+				sha: "しゃ",
+				shu: "しゅ",
+				sho: "しょ"
+			},
+			chGroup: {
+				cha: "ちゃ",
+				chu: "ちゅ",
+				cho: "ちょ"
+			},
+			nyGroup: {
+				nya: "にゃ",
+				nyu: "にゅ",
+				nyo: "にょ"
+			},
+			hyGroup: {
+				hya: "ひゃ",
+				hyu: "ひゅ",
+				hyo: "ひょ"
+			},
+			myGroup: {
+				mya: "みゃ",
+				myu: "みゅ",
+				myo: "みょ"
+			},
+			ryGroup: {
+				rya: "りゃ",
+				ryu: "りゅ",
+				ryo: "りょ"
+			},
+			gyGroup: {
+				gya: "ぎゃ",
+				gyu: "ぎゅ",
+				gyo: "ぎょ"
+			},
+			jGroup: {
+				ja: "じゃ",
+				ju: "じゅ",
+				jo: "じょ"
+			},
+			dyGroup: {
+				dya: "ぢゃ",
+				dyu: "ぢゅ",
+				dyo: "ぢょ"
+			},
+			byGroup: {
+				bya: "びゃ",
+				byu: "びゅ",
+				byo: "びょ"
+			},
+			pyGroup: {
+				pya: "ぴゃ",
+				pyu: "ぴゅ",
+				pyo: "ぴょ"
+			}
 		}
 	}
 ];
