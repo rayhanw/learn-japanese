@@ -9,9 +9,7 @@ export const Hiragana: React.FC = () => {
 				<h2>Main Hiragana</h2>
 				<div className="cardsContainer">
 					{Object.keys(HIRAGANA_MAPPING.main.vowels).map((key, i) => (
-						<div key={i}>
-							<Checkbox text={key} />
-						</div>
+						<Checkbox text={key} />
 					))}
 				</div>
 			</div>
