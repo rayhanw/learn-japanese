@@ -5,23 +5,33 @@ interface CheckboxProps {
 	text: string;
 	hiragana: string;
 	classList?: string;
+	handleMultipleChange?: () => void;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
 	hiragana,
 	text,
-	classList = ""
+	classList = "",
+	handleMultipleChange
 }) => {
 	const [checked, setChecked] = useState(false);
 	const { state, dispatch } = useGlobalStateContext();
 	const titleText = hiragana === "" ? text : `${hiragana}/${text}`;
 
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handleOneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setChecked(prevState => !prevState);
 		if (state.kata.includes(e.target.value)) {
 			dispatch({ type: "REMOVE", payload: e.target.value });
 		} else {
 			dispatch({ type: "ADD", payload: e.target.value });
+		}
+	};
+
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		if (!!handleMultipleChange) {
+			handleMultipleChange();
+		} else {
+			handleOneChange(e);
 		}
 	};
 
