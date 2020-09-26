@@ -1,104 +1,102 @@
 export const HIRAGANA_MAPPING = {
 	main: {
-		vowels: {
+		a: {
 			a: "あ",
 			i: "い",
 			u: "う",
 			e: "え",
 			o: "お"
 		},
-		kGroup: {
+		ka: {
 			ka: "か",
 			ki: "き",
 			ku: "く",
 			ke: "け",
 			ko: "こ"
 		},
-		sGroup: {
+		sa: {
 			sa: "さ",
 			shi: "し",
 			su: "す",
 			se: "せ",
 			so: "そ"
 		},
-		tGroup: {
+		ta: {
 			ta: "た",
 			chi: "ち",
 			tsu: "つ",
 			te: "て",
 			to: "と"
 		},
-		nGroup: {
+		na: {
 			na: "な",
 			ni: "に",
 			nu: "ぬ",
 			ne: "ね",
 			no: "の"
 		},
-		hGroup: {
+		ha: {
 			ha: "は",
 			hi: "ひ",
 			fu: "ふ",
 			he: "へ",
 			ho: "ほ"
 		},
-		mGroup: {
+		ma: {
 			ma: "ま",
 			mi: "み",
 			mu: "む",
 			me: "め",
 			mo: "も"
 		},
-		yGroup: {
+		ya: {
 			ya: "や",
 			yu: "ゆ",
 			yo: "よ"
 		},
-		rGroup: {
+		ra: {
 			ra: "ら",
 			ri: "り",
 			ru: "る",
 			re: "れ",
 			ro: "ろ"
 		},
-		wGroup: {
+		wa: {
 			wa: "わ",
-			wo: "を"
-		},
-		others: {
+			wo: "を",
 			n: "ん"
 		}
 	},
 	dakuten: {
-		gGroup: {
+		ga: {
 			ga: "が",
 			gi: "ぎ",
 			gu: "ぐ",
 			ge: "げ",
 			go: "ご"
 		},
-		zGroup: {
+		za: {
 			za: "ざ",
 			zi: "じ",
 			zu: "ず",
 			ze: "ぜ",
 			zo: "ぞ"
 		},
-		dGroup: {
+		da: {
 			da: "だ",
 			di: "ぢ",
 			du: "づ",
 			de: "で",
 			do: "ど"
 		},
-		bGroup: {
+		ba: {
 			ba: "ば",
 			bi: "び",
 			bu: "ぶ",
 			be: "べ",
 			bo: "ぼ"
 		},
-		pGroup: {
+		pa: {
 			pa: "ぱ",
 			pi: "ぴ",
 			pu: "ぷ",
@@ -107,62 +105,62 @@ export const HIRAGANA_MAPPING = {
 		}
 	},
 	dakutenCombination: {
-		kyGroup: {
+		kya: {
 			kya: "きゃ",
 			kyu: "きゅ",
 			kyo: "きょ"
 		},
-		shGroup: {
+		sha: {
 			sha: "しゃ",
 			shu: "しゅ",
 			sho: "しょ"
 		},
-		chGroup: {
+		cha: {
 			cha: "ちゃ",
 			chu: "ちゅ",
 			cho: "ちょ"
 		},
-		nyGroup: {
+		nya: {
 			nya: "にゃ",
 			nyu: "にゅ",
 			nyo: "にょ"
 		},
-		hyGroup: {
+		hya: {
 			hya: "ひゃ",
 			hyu: "ひゅ",
 			hyo: "ひょ"
 		},
-		myGroup: {
+		mya: {
 			mya: "みゃ",
 			myu: "みゅ",
 			myo: "みょ"
 		},
-		ryGroup: {
+		rya: {
 			rya: "りゃ",
 			ryu: "りゅ",
 			ryo: "りょ"
 		},
-		gyGroup: {
+		gya: {
 			gya: "ぎゃ",
 			gyu: "ぎゅ",
 			gyo: "ぎょ"
 		},
-		jGroup: {
+		ja: {
 			ja: "じゃ",
 			ju: "じゅ",
 			jo: "じょ"
 		},
-		dyGroup: {
+		dya: {
 			dya: "ぢゃ",
 			dyu: "ぢゅ",
 			dyo: "ぢょ"
 		},
-		byGroup: {
+		bya: {
 			bya: "びゃ",
 			byu: "びゅ",
 			byo: "びょ"
 		},
-		pyGroup: {
+		pya: {
 			pya: "ぴゃ",
 			pyu: "ぴゅ",
 			pyo: "ぴょ"

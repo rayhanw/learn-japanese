@@ -2,9 +2,10 @@ import React, { useState } from "react";
 
 interface CheckboxProps {
 	text: string;
+	hiragana: string;
 }
 
-export const Checkbox: React.FC<CheckboxProps> = ({ text }) => {
+export const Checkbox: React.FC<CheckboxProps> = ({ hiragana, text }) => {
 	const [checked, setChecked] = useState(false);
 
 	return (
@@ -15,7 +16,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({ text }) => {
 				onChange={() => setChecked(prevState => !prevState)}
 				checked={checked}
 			/>
-			<p className="checkboxLabel">{text}</p>
+			<p className="checkboxLabel">
+				{hiragana}/{text}
+			</p>
 		</label>
 	);
 };

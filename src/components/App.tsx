@@ -4,11 +4,12 @@ import { INSTRUCTIONS } from "../constants";
 import { Navbar } from "./Navbar";
 import { Hiragana } from "../pages/Hiragana";
 import { Katakana } from "../pages/Katakana";
+import { Layout } from "./Layout";
 
 export const App: React.FC = () => {
 	return (
 		<Router>
-			<div className="App">
+			<Layout>
 				<header>
 					<Navbar />
 					<h1>Type Romaji for the Hiragana That You Know!</h1>
@@ -31,7 +32,7 @@ export const App: React.FC = () => {
 						</Route>
 					</Switch>
 				</main>
-			</div>
+			</Layout>
 		</Router>
 	);
 };
