@@ -27,4 +27,8 @@
 		margin: 0;
 		text-align: center;
 	}
+
+	&.mb-2 {
+		margin-bottom: var(--space-md);
+	}
 }
