@@ -64,6 +64,7 @@ export const Hiragana: React.FC = () => {
 							hiragana=""
 							classList={`mb-2 ${mainHiraganaActive ? "checked" : ""}`}
 							handleMultipleChange={handleMainHiraganaChange}
+							checked={mainHiraganaActive}
 						/>
 					</CheckboxCollection>
 				</div>
@@ -89,6 +90,9 @@ export const Hiragana: React.FC = () => {
 						/>
 					</CheckboxCollection>
 				</div>
+			</div>
+			<div className="relativeCenter">
+				<button className="btn btn-primary btn-lg">Start Quiz!</button>
 			</div>
 		</div>
 	);

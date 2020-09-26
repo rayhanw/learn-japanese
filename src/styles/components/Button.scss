@@ -1,0 +1,27 @@
+button.btn {
+	outline: none;
+	background: none;
+	border: none;
+	width: 120px;
+	height: 40px;
+	border-radius: var(--border-radius-lg);
+	color: white;
+	font-weight: bold;
+	font-size: 16px;
+	cursor: pointer;
+	transition: background 0.25s ease;
+
+	&.btn-primary {
+		background: var(--blue-secondary);
+
+		&:hover {
+			background: var(--blue-primary);
+		}
+	}
+
+	&.btn-lg {
+		width: 200px;
+		height: 60px;
+		font-size: 24px;
+	}
+}

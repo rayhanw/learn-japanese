@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useGlobalStateContext } from "../contexts/globalState";
 
 interface CheckboxProps {
@@ -6,20 +6,22 @@ interface CheckboxProps {
 	hiragana: string;
 	classList?: string;
 	handleMultipleChange?: () => void;
+	checked?: boolean;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
 	hiragana,
 	text,
 	classList = "",
-	handleMultipleChange
+	handleMultipleChange,
+	checked
 }) => {
-	const [checked, setChecked] = useState(false);
+	const [localChecked, setLocalChecked] = useState(false);
 	const { state, dispatch } = useGlobalStateContext();
 	const titleText = hiragana === "" ? text : `${hiragana}/${text}`;
 
 	const handleOneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setChecked(prevState => !prevState);
+		setLocalChecked(prevState => !prevState);
 		if (state.kata.includes(e.target.value)) {
 			dispatch({ type: "REMOVE", payload: e.target.value });
 		} else {
@@ -35,15 +37,25 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 		}
 	};
 
+	useEffect(() => {
+		if (checked) {
+			setLocalChecked(true);
+		} else {
+			setLocalChecked(false);
+		}
+	}, [checked]);
+
 	return (
 		<label
-			className={`checkboxWrapper ${checked ? "checked" : ""} ${classList}`}
+			className={`checkboxWrapper ${
+				localChecked ? "checked" : ""
+			} ${classList}`}
 		>
 			<input
 				type="checkbox"
 				className="checkbox"
 				onChange={handleChange}
-				checked={checked}
+				checked={localChecked}
 				value={text}
 			/>
 			<p className="checkboxLabel">{titleText}</p>
