@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { HIRAGANA_MAPPING } from "../constants";
-import { CheckboxCollection } from "../components/CheckboxCollection";
 import { Checkbox } from "../components/Checkbox";
+import { CheckboxCollection } from "../components/CheckboxCollection";
+import { HIRAGANA_MAPPING } from "../constants";
 import { useGlobalStateContext } from "../contexts/globalState";
+import { Link } from "react-router-dom";
 
 export const Hiragana: React.FC = () => {
 	const { dispatch } = useGlobalStateContext();
@@ -58,41 +59,55 @@ export const Hiragana: React.FC = () => {
 			<div className="pageGrid">
 				<div>
 					<h2 className="title">Main Hiragana</h2>
-					<CheckboxCollection data={main}>
+					<CheckboxCollection
+						data={main}
+						shouldActivate={mainHiraganaActive || allHiraganaActive}
+					>
 						<Checkbox
 							text="All Main Hiragana"
 							hiragana=""
-							classList={`mb-2 ${mainHiraganaActive ? "checked" : ""}`}
+							classList="mb-2"
 							handleMultipleChange={handleMainHiraganaChange}
-							checked={mainHiraganaActive}
+							checked={mainHiraganaActive || allHiraganaActive}
 						/>
 					</CheckboxCollection>
 				</div>
 				<div>
 					<h2 className="title">Dakuten/Handakuten</h2>
-					<CheckboxCollection data={dakuten} columnCount="oneColumn">
+					<CheckboxCollection
+						data={dakuten}
+						columnCount="oneColumn"
+						shouldActivate={dakutenHiraganaActive || allHiraganaActive}
+					>
 						<Checkbox
 							text="All Dakuten Hiragana"
 							hiragana=""
 							classList={`mb-2 ${dakutenHiraganaActive ? "checked" : ""}`}
 							handleMultipleChange={handleDakutenHiraganaChange}
+							checked={dakutenHiraganaActive || allHiraganaActive}
 						/>
 					</CheckboxCollection>
 				</div>
 				<div>
 					<h2 className="title">Combination</h2>
-					<CheckboxCollection data={dakutenCombination}>
+					<CheckboxCollection
+						data={dakutenCombination}
+						shouldActivate={combinationHiraganaActive || allHiraganaActive}
+					>
 						<Checkbox
 							text="All Combination Hiragana"
 							hiragana=""
 							classList={`mb-2 ${combinationHiraganaActive ? "checked" : ""}`}
 							handleMultipleChange={handleCombinationHiraganaChange}
+							checked={combinationHiraganaActive || allHiraganaActive}
 						/>
 					</CheckboxCollection>
 				</div>
 			</div>
 			<div className="relativeCenter">
-				<button className="btn btn-primary btn-lg">Start Quiz!</button>
+				<Link to="/quiz" className="btn btn-primary btn-lg">
+					Start Quiz!
+				</Link>
 			</div>
 		</div>
 	);
