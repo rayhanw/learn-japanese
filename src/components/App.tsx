@@ -1,11 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { INSTRUCTIONS } from "../constants";
-import { Navbar } from "./Navbar";
+import { GlobalStateProvider } from "../contexts/globalState";
 import { Hiragana } from "../pages/Hiragana";
 import { Katakana } from "../pages/Katakana";
+import { Quiz } from "../pages/Quiz";
 import { Layout } from "./Layout";
-import { GlobalStateProvider } from "../contexts/globalState";
+import { Navbar } from "./Navbar";
 
 export const App: React.FC = () => {
 	return (
@@ -23,6 +24,9 @@ export const App: React.FC = () => {
 					</header>
 					<main id="content">
 						<Switch>
+							<Route path="/quiz">
+								<Quiz />
+							</Route>
 							<Route path="/hiragana">
 								<Hiragana />
 							</Route>
