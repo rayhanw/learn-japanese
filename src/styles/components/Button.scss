@@ -1,4 +1,5 @@
-button.btn {
+button.btn,
+a.btn {
 	outline: none;
 	background: none;
 	border: none;
@@ -10,6 +11,7 @@ button.btn {
 	font-size: 16px;
 	cursor: pointer;
 	transition: background 0.25s ease;
+	text-align: center;
 
 	&.btn-primary {
 		background: var(--blue-secondary);
@@ -23,5 +25,13 @@ button.btn {
 		width: 200px;
 		height: 60px;
 		font-size: 24px;
+	}
+}
+
+a.btn {
+	display: block;
+	text-decoration: none;
+	&.btn-lg {
+		line-height: 60px;
 	}
 }
