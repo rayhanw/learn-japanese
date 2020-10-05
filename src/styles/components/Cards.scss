@@ -6,4 +6,8 @@
 	&.oneColumn {
 		grid-template-columns: 1fr;
 	}
+
+	@include for-phone-only {
+		grid-template-columns: 1fr 1fr !important;
+	}
 }
