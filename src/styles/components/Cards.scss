@@ -11,3 +11,15 @@
 		grid-template-columns: 1fr 1fr !important;
 	}
 }
+
+.resultCard {
+	@extend .flexAllCenter;
+	@extend .blueBackground;
+
+	flex-direction: column;
+	padding: 1rem;
+	margin: 0.5rem;
+	border-radius: var(--border-radius-md);
+	max-width: 2rem;
+	max-height: 2rem;
+}
