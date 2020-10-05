@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { useGlobalStateContext } from "../contexts/globalState";
+import useDidMountEffect from "../hooks/useDidMountEffect";
+import { ALL_HIRAGANA_KEYS } from "../utilities";
 
 interface KataProps {
 	japanese: string;
@@ -10,6 +13,10 @@ export const Kata: React.FC<KataProps> = ({ japanese, answer }) => {
 		"pending"
 	);
 	const [isFocused, setIsFocused] = useState(false);
+	const {
+		state: { result },
+		dispatch
+	} = useGlobalStateContext();
 	const labelClass =
 		isCorrect === "pending" ? "default" : isCorrect ? "correct" : "wrong";
 
@@ -25,6 +32,24 @@ export const Kata: React.FC<KataProps> = ({ japanese, answer }) => {
 	const handleFocus = () => {
 		setIsFocused(prevState => !prevState);
 	};
+
+	useDidMountEffect(() => {
+		let group: "main" | "dakuten" | "dakutenCombination";
+		if (ALL_HIRAGANA_KEYS.mainHiragana.includes(answer)) {
+			group = "main";
+		} else if (ALL_HIRAGANA_KEYS.dakutenHiragana.includes(answer)) {
+			group = "dakuten";
+		} else {
+			group = "dakutenCombination";
+		}
+
+		if (!Object.keys(result[group]).includes(answer)) {
+			dispatch({
+				type: "ADD_RESULT",
+				payload: { group, result: { [answer]: !!isCorrect } }
+			});
+		}
+	}, [isCorrect, answer, dispatch]);
 
 	return (
 		<div
