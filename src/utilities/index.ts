@@ -20,3 +20,21 @@ export const mapActiveToValues = (
 
 	return kataToBeInputted;
 };
+
+const ALL_MAIN_HIRAGANA_KEYS = Object.values(HIRAGANA_MAPPING.main)
+	.map(k => Object.keys(k))
+	.flat();
+const ALL_DAKUTEN_HIRAGANA_KEYS = Object.values(HIRAGANA_MAPPING.dakuten)
+	.map(k => Object.keys(k))
+	.flat();
+const ALL_DAKUTEN_COMBINATION_HIRAGANA_KEYS = Object.values(
+	HIRAGANA_MAPPING.dakutenCombination
+)
+	.map(k => Object.keys(k))
+	.flat();
+
+export const ALL_HIRAGANA_KEYS = {
+	mainHiragana: ALL_MAIN_HIRAGANA_KEYS,
+	dakutenHiragana: ALL_DAKUTEN_HIRAGANA_KEYS,
+	dakutenCombination: ALL_DAKUTEN_COMBINATION_HIRAGANA_KEYS
+};
