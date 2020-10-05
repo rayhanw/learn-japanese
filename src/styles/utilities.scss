@@ -8,3 +8,9 @@
 .flex {
 	display: flex;
 }
+
+.flexAllCenter {
+	@extend .flex;
+	justify-content: center;
+	align-items: center;
+}
