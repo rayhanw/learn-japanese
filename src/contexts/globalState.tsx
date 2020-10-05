@@ -1,11 +1,17 @@
-import React, { useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { HIRAGANA_MAPPING } from "../constants";
 
+interface QuizResult {
+	main: Record<string, string>[];
+	dakuten: Record<string, string>[];
+	dakutenCombination: Record<string, string>[];
+}
 export interface StateContext {
 	kata: string[];
+	result: QuizResult;
 }
 export type Action =
-	| { type: "ADD" | "REMOVE"; payload: string }
+	| { type: "ADD_KATA" | "REMOVE_KATA"; payload: string }
 	| {
 			type:
 				| "ADD_ALL_HIRAGANA"
@@ -22,19 +28,26 @@ export interface Store {
 	dispatch: React.Dispatch<Action>;
 }
 
-const initialState: StateContext = { kata: [] };
-const GlobalStateContext = React.createContext<Store>({
+const initialState: StateContext = {
+	kata: [],
+	result: { main: [], dakuten: [], dakutenCombination: [] }
+};
+const GlobalStateContext = createContext<Store>({
 	state: initialState,
 	dispatch: () => null
 });
 const reducer = (state: StateContext, action: Action) => {
 	switch (action.type) {
-		case "ADD":
-			return { kata: [...state.kata, action.payload] };
-		case "REMOVE":
-			return { kata: state.kata.filter(ele => ele !== action.payload) };
+		case "ADD_KATA":
+			return { ...state, kata: [...state.kata, action.payload] };
+		case "REMOVE_KATA":
+			return {
+				...state,
+				kata: state.kata.filter(ele => ele !== action.payload)
+			};
 		case "ADD_ALL_HIRAGANA":
 			return {
+				...state,
 				kata: [
 					...state.kata,
 					...Object.keys(HIRAGANA_MAPPING.main),
@@ -43,21 +56,26 @@ const reducer = (state: StateContext, action: Action) => {
 				]
 			};
 		case "REMOVE_ALL_HIRAGANA":
-			return { kata: [] };
+			return { ...state, kata: [] };
 		case "ADD_MAIN_HIRAGANA":
-			return { kata: [...state.kata, ...Object.keys(HIRAGANA_MAPPING.main)] };
+			return {
+				...state,
+				kata: [...state.kata, ...Object.keys(HIRAGANA_MAPPING.main)]
+			};
 		case "REMOVE_MAIN_HIRAGANA":
 			// TODO: Change
-			return { kata: [] };
+			return { ...state, kata: [] };
 		case "ADD_DAKUTEN_HIRAGANA":
 			return {
+				...state,
 				kata: [...state.kata, ...Object.keys(HIRAGANA_MAPPING.dakuten)]
 			};
 		case "REMOVE_DAKUTEN_HIRAGANA":
 			// TODO: Change
-			return { kata: [] };
+			return { ...state, kata: [] };
 		case "ADD_COMBINATION_HIRAGANA":
 			return {
+				...state,
 				kata: [
 					...state.kata,
 					...Object.keys(HIRAGANA_MAPPING.dakutenCombination)
@@ -65,7 +83,7 @@ const reducer = (state: StateContext, action: Action) => {
 			};
 		case "REMOVE_COMBINATION_HIRAGANA":
 			// TODO: Change
-			return { kata: [] };
+			return { ...state, kata: [] };
 		default:
 			return state;
 	}

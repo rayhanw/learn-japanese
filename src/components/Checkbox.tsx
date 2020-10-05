@@ -23,9 +23,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 	const handleOneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setLocalChecked(prevState => !prevState);
 		if (state.kata.includes(e.target.value)) {
-			dispatch({ type: "REMOVE", payload: e.target.value });
+			dispatch({ type: "REMOVE_KATA", payload: e.target.value });
 		} else {
-			dispatch({ type: "ADD", payload: e.target.value });
+			dispatch({ type: "ADD_KATA", payload: e.target.value });
 		}
 	};
 
