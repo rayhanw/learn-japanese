@@ -6,6 +6,10 @@ interface QuizResult {
 	dakuten: Record<string, string>[];
 	dakutenCombination: Record<string, string>[];
 }
+interface QuizResultPayload {
+	group: "main" | "dakuten" | "dakutenCombination";
+	result: Record<string, boolean>;
+}
 export interface StateContext {
 	kata: string[];
 	result: QuizResult;
@@ -22,7 +26,8 @@ export type Action =
 				| "REMOVE_DAKUTEN_HIRAGANA"
 				| "ADD_COMBINATION_HIRAGANA"
 				| "REMOVE_COMBINATION_HIRAGANA";
-	  };
+	  }
+	| { type: "ADD_RESULT"; payload: QuizResultPayload };
 export interface Store {
 	state: StateContext;
 	dispatch: React.Dispatch<Action>;
@@ -84,6 +89,17 @@ const reducer = (state: StateContext, action: Action) => {
 		case "REMOVE_COMBINATION_HIRAGANA":
 			// TODO: Change
 			return { ...state, kata: [] };
+		case "ADD_RESULT":
+			return {
+				...state,
+				result: {
+					...state.result,
+					[action.payload.group]: {
+						...(state.result as any)[action.payload.group],
+						...action.payload.result
+					}
+				}
+			};
 		default:
 			return state;
 	}
