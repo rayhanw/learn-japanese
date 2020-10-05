@@ -1,3 +1,11 @@
 .layout {
 	margin: var(--layout-sm) var(--layout-md) var(--layout-sm) var(--layout-md);
+
+	@include for-phone-only {
+		margin: var(--layout-sm);
+	}
+
+	@include for-tablet {
+		margin: var(--layout-sm);
+	}
 }

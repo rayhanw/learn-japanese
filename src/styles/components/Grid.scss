@@ -2,5 +2,9 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-gap: var(--space-md);
-	margin: 40px 0;
+	margin: 20px 0;
+
+	@include for-phone-only {
+		grid-template-columns: 1fr;
+	}
 }

@@ -53,7 +53,7 @@ export const Hiragana: React.FC = () => {
 			<Checkbox
 				text="All Hiragana"
 				hiragana=""
-				classList={`mb-3 ${allHiraganaActive ? "checked" : ""}`}
+				classList={`${allHiraganaActive ? "checked" : ""}`}
 				handleMultipleChange={handleAllHiraganaChange}
 			/>
 			<div className="pageGrid">

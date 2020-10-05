@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useGlobalStateContext } from "../contexts/globalState";
-import { HIRAGANA_MAPPING } from "../constants";
+import { HIRAGANA_MAPPING, INSTRUCTIONS } from "../constants";
 import { Kata } from "../components/Kata";
+import { shuffle } from "../utilities";
 
 const mapActiveToValues = (
 	activeKata: string[],
@@ -41,19 +42,28 @@ export const Quiz: React.FC = () => {
 			const dakutenHiragana = mapActiveToValues(kata, "dakuten");
 			const combinationHiragana = mapActiveToValues(kata, "dakutenCombination");
 
-			return [
+			const allActiveKata = [
 				...mainHiragana,
 				...dakutenHiragana,
 				...combinationHiragana,
 				...prevState
 			];
+
+			return shuffle(allActiveKata);
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
 		<div id="quizPage">
-			<h1>Quiz</h1>
+			<h1 className="blueText textCenter">
+				Type Romaji for the Hiragana That You Know!
+			</h1>
+			<ul>
+				{INSTRUCTIONS.map((text, i) => (
+					<li key={i}>{text}</li>
+				))}
+			</ul>
 			<section className="kataList">
 				{activeKata.map((kata, i) => {
 					const key = Object.keys(kata)[0];

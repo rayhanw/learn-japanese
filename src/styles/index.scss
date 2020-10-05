@@ -1,5 +1,8 @@
 @import "variables";
 @import "globals";
 @import "utilities";
+@import "mixins";
+
+// Component + Pages
 @import "components/index";
 @import "pages/index";

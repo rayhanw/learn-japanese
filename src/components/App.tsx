@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { INSTRUCTIONS } from "../constants";
 import { GlobalStateProvider } from "../contexts/globalState";
 import { Hiragana } from "../pages/Hiragana";
 import { Katakana } from "../pages/Katakana";
@@ -13,15 +12,7 @@ export const App: React.FC = () => {
 		<Router>
 			<GlobalStateProvider>
 				<Layout>
-					<header>
-						<Navbar />
-						<h1>Type Romaji for the Hiragana That You Know!</h1>
-						<ul>
-							{INSTRUCTIONS.map((text, i) => (
-								<li key={i}>{text}</li>
-							))}
-						</ul>
-					</header>
+					<Navbar />
 					<main id="content">
 						<Switch>
 							<Route path="/quiz">
