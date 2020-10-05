@@ -2,9 +2,9 @@ import React, { createContext, useContext, useReducer } from "react";
 import { HIRAGANA_MAPPING } from "../constants";
 
 interface QuizResult {
-	main: Record<string, string>[];
-	dakuten: Record<string, string>[];
-	dakutenCombination: Record<string, string>[];
+	main: Record<string, Record<string, boolean>>;
+	dakuten: Record<string, Record<string, boolean>>;
+	dakutenCombination: Record<string, Record<string, boolean>>;
 }
 interface QuizResultPayload {
 	group: "main" | "dakuten" | "dakutenCombination";
@@ -35,7 +35,7 @@ export interface Store {
 
 const initialState: StateContext = {
 	kata: [],
-	result: { main: [], dakuten: [], dakutenCombination: [] }
+	result: { main: {}, dakuten: {}, dakutenCombination: {} }
 };
 const GlobalStateContext = createContext<Store>({
 	state: initialState,
