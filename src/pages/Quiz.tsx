@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useGlobalStateContext } from "../contexts/globalState";
 import { HIRAGANA_MAPPING } from "../constants";
+import { Kata } from "../components/Kata";
 
 const mapActiveToValues = (
 	activeKata: string[],
@@ -53,17 +54,11 @@ export const Quiz: React.FC = () => {
 	return (
 		<div id="quizPage">
 			<h1>Quiz</h1>
-			<section>
+			<section className="kataList">
 				{activeKata.map((kata, i) => {
 					const key = Object.keys(kata)[0];
 
-					return (
-						<div className="flex" key={i}>
-							<p>{key}</p>
-							<p>:</p>
-							<p>{kata[key]}</p>
-						</div>
-					);
+					return <Kata japanese={kata[key]} answer={key} key={i} />;
 				})}
 			</section>
 		</div>
