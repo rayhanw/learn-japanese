@@ -1,0 +1,101 @@
+@keyframes Wrong {
+	0% {
+		background-color: #d32727;
+		border-color: #d32727;
+		transform: translateX(0);
+	}
+
+	10% {
+		background-color: #d32727;
+		border-color: #d32727;
+		transform: translateX(3px);
+	}
+
+	20% {
+		background-color: #d32727;
+		border-color: #d32727;
+		transform: translateX(-3px);
+	}
+
+	30% {
+		transform: translateX(3px);
+	}
+
+	40% {
+		transform: translateX(-3px);
+	}
+
+	50% {
+		transform: translateX(3px);
+	}
+
+	60% {
+		transform: translateX(-3px);
+	}
+
+	70% {
+		transform: translateX(0);
+	}
+
+	100% {
+		background-color: #5783a2;
+		border-color: #5783a2;
+	}
+}
+
+@keyframes Grow {
+	0% {
+		transform: scale(1, 1);
+	}
+
+	100% {
+		transform: scale(1.1, 1.1);
+	}
+}
+
+.kata {
+	@extend .flexAllCenter;
+	flex-direction: column;
+	border-radius: 1rem;
+	width: 15vw;
+	padding: 2vw;
+	margin: 1vw;
+	font-size: 7vw;
+	text-align: center;
+	color: white;
+	display: flex;
+
+	&.focus {
+		animation: Grow 0.5s 1;
+		animation-fill-mode: forwards;
+	}
+
+	&.default {
+		background-color: var(--blue-secondary);
+		border: 0.7vw var(--blue-secondary) solid;
+	}
+
+	&.correct {
+		background-color: var(--green);
+		border: 0.7vw var(--green) solid;
+	}
+
+	&.wrong {
+		background-color: var(--red);
+		border: 0.7vw var(--red) solid;
+		animation: Wrong 1s linear 1;
+	}
+
+	.kataInput {
+		height: 7vw;
+		font-size: 4vw;
+		outline: none;
+		width: 75%;
+		text-align: center;
+		text-transform: lowercase;
+		box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+		border-radius: 4px;
+		border-color: white;
+		border-style: none;
+	}
+}
