@@ -27,7 +27,8 @@ export type Action =
 				| "ADD_COMBINATION_HIRAGANA"
 				| "REMOVE_COMBINATION_HIRAGANA";
 	  }
-	| { type: "ADD_RESULT"; payload: QuizResultPayload };
+	| { type: "ADD_RESULT"; payload: QuizResultPayload }
+	| { type: "CLEAR_RESULT" };
 export interface Store {
 	state: StateContext;
 	dispatch: React.Dispatch<Action>;
@@ -98,6 +99,15 @@ const reducer = (state: StateContext, action: Action) => {
 						...(state.result as any)[action.payload.group],
 						...action.payload.result
 					}
+				}
+			};
+		case "CLEAR_RESULT":
+			return {
+				...state,
+				result: {
+					main: {},
+					dakuten: {},
+					dakutenCombination: {}
 				}
 			};
 		default:

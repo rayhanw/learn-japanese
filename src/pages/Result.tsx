@@ -1,11 +1,19 @@
 import React from "react";
 import { useGlobalStateContext } from "../contexts/globalState";
+import { useHistory } from "react-router-dom";
 
 export const Result: React.FC = () => {
 	const {
-		state: { result }
+		state: { result },
+		dispatch
 	} = useGlobalStateContext();
+	const history = useHistory();
 	const { main, dakuten, dakutenCombination } = result;
+
+	const restart = () => {
+		dispatch({ type: "CLEAR_RESULT" });
+		history.push("/");
+	};
 
 	return (
 		<div id="resultPage">
@@ -67,6 +75,11 @@ export const Result: React.FC = () => {
 						))}
 					</div>
 				</div>
+			</div>
+			<div className="flexAllCenter">
+				<button onClick={restart} className="btn btn-primary btn-lg">
+					Restart Quiz
+				</button>
 			</div>
 		</div>
 	);
