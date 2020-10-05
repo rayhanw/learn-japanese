@@ -6,6 +6,7 @@ import { Katakana } from "../pages/Katakana";
 import { Quiz } from "../pages/Quiz";
 import { Layout } from "./Layout";
 import { Navbar } from "./Navbar";
+import { Result } from "../pages/Result";
 
 export const App: React.FC = () => {
 	return (
@@ -23,6 +24,9 @@ export const App: React.FC = () => {
 							</Route>
 							<Route path="/katakana">
 								<Katakana />
+							</Route>
+							<Route path="/result">
+								<Result />
 							</Route>
 							<Route path="/">
 								<Hiragana />
