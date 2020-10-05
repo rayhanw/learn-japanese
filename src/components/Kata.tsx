@@ -33,7 +33,12 @@ export const Kata: React.FC<KataProps> = ({ japanese, answer }) => {
 			onBlur={handleFocus}
 		>
 			<div className="japaneseText">{japanese}</div>
-			<input type="text" className="kataInput" onBlur={handleChange} />
+			<input
+				type="text"
+				className="kataInput"
+				onBlur={handleChange}
+				disabled={isCorrect === true}
+			/>
 		</div>
 	);
 };
