@@ -103,4 +103,16 @@
 			color: var(--text-gray);
 		}
 	}
+
+	@include for-phone-only {
+		width: 30vw;
+		font-size: 12vw;
+		padding: 2vw;
+		margin: 2vw;
+
+		.kataInput {
+			height: 12vw;
+			font-size: 8vw;
+		}
+	}
 }
