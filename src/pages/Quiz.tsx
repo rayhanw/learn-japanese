@@ -14,7 +14,6 @@ export const Quiz: React.FC = () => {
 	const history = useHistory();
 
 	const handleFinish = () => {
-		console.log("SUBMIT");
 		history.push("/result");
 	};
 
