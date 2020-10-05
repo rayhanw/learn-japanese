@@ -4,4 +4,9 @@
 		flex-wrap: wrap;
 		justify-content: center;
 	}
+
+	.buttonWrapper {
+		@extend .flexAllCenter;
+		margin-top: 4vh;
+	}
 }

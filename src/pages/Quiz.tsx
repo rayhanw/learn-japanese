@@ -1,27 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { useGlobalStateContext } from "../contexts/globalState";
-import { HIRAGANA_MAPPING, INSTRUCTIONS } from "../constants";
+import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Kata } from "../components/Kata";
-import { shuffle } from "../utilities";
-
-const mapActiveToValues = (
-	activeKata: string[],
-	hiraganaKey: "main" | "dakuten" | "dakutenCombination"
-) => {
-	const kataToBeInputted: Record<string, string>[] = [];
-	const hiraganaKeys = Object.keys(HIRAGANA_MAPPING[hiraganaKey]);
-
-	activeKata.forEach(kata => {
-		if (hiraganaKeys.includes(kata)) {
-			const words = (HIRAGANA_MAPPING[hiraganaKey] as any)[kata];
-			Object.keys(words).forEach(word => {
-				kataToBeInputted.push({ [word]: words[word] });
-			});
-		}
-	});
-
-	return kataToBeInputted;
-};
+import { INSTRUCTIONS } from "../constants";
+import { useGlobalStateContext } from "../contexts/globalState";
+import { mapActiveToValues, shuffle } from "../utilities";
 
 export const Quiz: React.FC = () => {
 	const {
@@ -29,6 +11,12 @@ export const Quiz: React.FC = () => {
 		state: { kata }
 	} = useGlobalStateContext();
 	const [activeKata, setActiveKata] = useState<Record<string, string>[]>([]);
+	const history = useHistory();
+
+	const handleFinish = () => {
+		console.log("SUBMIT");
+		history.push("/result");
+	};
 
 	useEffect(() => {
 		return () => {
@@ -64,12 +52,19 @@ export const Quiz: React.FC = () => {
 					<li key={i}>{text}</li>
 				))}
 			</ul>
-			<section className="kataList">
-				{activeKata.map((kata, i) => {
-					const key = Object.keys(kata)[0];
+			<section>
+				<div className="kataList">
+					{activeKata.map((kata, i) => {
+						const key = Object.keys(kata)[0];
 
-					return <Kata japanese={kata[key]} answer={key} key={i} />;
-				})}
+						return <Kata japanese={kata[key]} answer={key} key={i} />;
+					})}
+				</div>
+				<div className="buttonWrapper">
+					<button className="btn btn-primary btn-lg" onClick={handleFinish}>
+						Finish Quiz
+					</button>
+				</div>
 			</section>
 		</div>
 	);
