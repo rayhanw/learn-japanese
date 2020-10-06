@@ -9,11 +9,15 @@ export const ResultSection: React.FC<ResultSectionProps> = ({
 	title,
 	content
 }) => {
+	const keys = Object.keys(content);
+
+	if (keys.length === 0) return null;
+
 	return (
 		<div>
-			<h2 className="title">Main Hiragana</h2>
+			<h2 className="title">{title}</h2>
 			<div className="flex flexWrap">
-				{Object.keys(content).map((key, i) => (
+				{keys.map((key, i) => (
 					<div className="resultCard" key={i}>
 						<div className="whiteText">
 							<p className="noMargin">{key}</p>
