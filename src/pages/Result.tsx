@@ -1,6 +1,7 @@
 import React from "react";
 import { useGlobalStateContext } from "../contexts/globalState";
 import { useHistory } from "react-router-dom";
+import { Head } from "../components/Head";
 
 export const Result: React.FC = () => {
 	const {
@@ -17,6 +18,7 @@ export const Result: React.FC = () => {
 
 	return (
 		<div id="resultPage">
+			<Head title="Result" />
 			<div className="pageGrid">
 				<div>
 					<h2 className="title">Main Hiragana</h2>

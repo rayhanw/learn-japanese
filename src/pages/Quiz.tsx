@@ -4,6 +4,7 @@ import { Kata } from "../components/Kata";
 import { INSTRUCTIONS } from "../constants";
 import { useGlobalStateContext } from "../contexts/globalState";
 import { mapActiveToValues, shuffle } from "../utilities";
+import { Head } from "../components/Head";
 
 export const Quiz: React.FC = () => {
 	const {
@@ -43,6 +44,7 @@ export const Quiz: React.FC = () => {
 
 	return (
 		<div id="quizPage">
+			<Head title="Quiz" />
 			<h1 className="blueText textCenter">
 				Type Romaji for the Hiragana That You Know!
 			</h1>

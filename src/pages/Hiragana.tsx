@@ -4,6 +4,7 @@ import { CheckboxCollection } from "../components/CheckboxCollection";
 import { HIRAGANA_MAPPING } from "../constants";
 import { useGlobalStateContext } from "../contexts/globalState";
 import { Link } from "react-router-dom";
+import { Head } from "../components/Head";
 
 export const Hiragana: React.FC = () => {
 	const { dispatch } = useGlobalStateContext();
@@ -50,6 +51,7 @@ export const Hiragana: React.FC = () => {
 
 	return (
 		<div id="hiraganaPage">
+			<Head title="Hiragana Quiz" />
 			<div className="mb-3">
 				<h1 className="textCenter blueText mb-3">
 					Clone of Tofugu's Learn Hiragana Quiz (+ Katakana)
