@@ -19,16 +19,13 @@ export const App: React.FC = () => {
 							<Route path="/quiz">
 								<Quiz />
 							</Route>
-							<Route path="/hiragana">
-								<Hiragana />
-							</Route>
 							<Route path="/katakana">
 								<Katakana />
 							</Route>
 							<Route path="/result">
 								<Result />
 							</Route>
-							<Route path="/">
+							<Route path={["/", "/hiragana"]}>
 								<Hiragana />
 							</Route>
 						</Switch>
