@@ -2,6 +2,7 @@ import React from "react";
 import { useGlobalStateContext } from "../contexts/globalState";
 import { useHistory } from "react-router-dom";
 import { Head } from "../components/Head";
+import { ResultSection } from "../components/ResultSection";
 
 export const Result: React.FC = () => {
 	const {
@@ -20,63 +21,12 @@ export const Result: React.FC = () => {
 		<div id="resultPage">
 			<Head title="Result" />
 			<div className="pageGrid">
-				<div>
-					<h2 className="title">Main Hiragana</h2>
-					<div className="flex flexWrap">
-						{Object.keys(main).map((key, i) => (
-							<div className="resultCard" key={i}>
-								<div className="whiteText">
-									<p className="noMargin">{key}</p>
-								</div>
-								<div className="flex">
-									{main[key] ? (
-										<input type="radio" />
-									) : (
-										<div className="whiteText">x: 1</div>
-									)}
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-				<div>
-					<h2 className="title">Dakuten Hiragana</h2>
-					<div className="flex flexWrap">
-						{Object.keys(dakuten).map((key, i) => (
-							<div className="resultCard" key={i}>
-								<div className="whiteText">
-									<p className="noMargin">{key}</p>
-								</div>
-								<div className="flex">
-									{dakuten[key] ? (
-										<input type="radio" />
-									) : (
-										<div className="whiteText">x: 1</div>
-									)}
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-				<div>
-					<h2 className="title">Combination Hiragana</h2>
-					<div className="flex flexWrap">
-						{Object.keys(dakutenCombination).map((key, i) => (
-							<div className="resultCard" key={i}>
-								<div className="whiteText">
-									<p className="noMargin">{key}</p>
-								</div>
-								<div className="flex">
-									{dakutenCombination[key] ? (
-										<input type="radio" />
-									) : (
-										<div className="whiteText">x: 1</div>
-									)}
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
+				<ResultSection title="Main Hiragana" content={main} />
+				<ResultSection title="Dakuten Hiragana" content={dakuten} />
+				<ResultSection
+					title="Combination Hiragana"
+					content={dakutenCombination}
+				/>
 			</div>
 			<div className="flexAllCenter">
 				<button onClick={restart} className="btn btn-primary btn-lg">
