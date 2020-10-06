@@ -60,6 +60,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 				autoCapitalize="off"
 				autoComplete="off"
 				autoCorrect="off"
+				spellCheck={false}
 			/>
 			<p className="checkboxLabel">{titleText}</p>
 		</label>
