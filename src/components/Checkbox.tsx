@@ -57,6 +57,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 				onChange={handleChange}
 				checked={localChecked}
 				value={text}
+				autoCapitalize="off"
+				autoComplete="off"
+				autoCorrect="off"
 			/>
 			<p className="checkboxLabel">{titleText}</p>
 		</label>
