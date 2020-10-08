@@ -1,6 +1,6 @@
 import React from "react";
 import { useGlobalStateContext } from "../contexts/globalState";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Head } from "../components/Head";
 import { ResultSection } from "../components/ResultSection";
 
@@ -11,6 +11,8 @@ export const Result: React.FC = () => {
 	} = useGlobalStateContext();
 	const history = useHistory();
 	const { main, dakuten, dakutenCombination } = result;
+	const { type } = useParams<{ type: "hiragana" | "katakana" }>();
+	const capitalizedType = type[0].toUpperCase() + type.substr(1);
 
 	const restart = () => {
 		dispatch({ type: "CLEAR_RESULT" });
@@ -21,10 +23,10 @@ export const Result: React.FC = () => {
 		<div id="resultPage">
 			<Head title="Result" />
 			<div className="pageGrid">
-				<ResultSection title="Main Hiragana" content={main} />
-				<ResultSection title="Dakuten Hiragana" content={dakuten} />
+				<ResultSection title={`Main ${capitalizedType}`} content={main} />
+				<ResultSection title={`Dakuten ${capitalizedType}`} content={dakuten} />
 				<ResultSection
-					title="Combination Hiragana"
+					title={`Combination ${capitalizedType}`}
 					content={dakutenCombination}
 				/>
 			</div>

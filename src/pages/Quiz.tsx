@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Kata } from "../components/Kata";
 import { INSTRUCTIONS } from "../constants";
 import { useGlobalStateContext } from "../contexts/globalState";
@@ -7,35 +7,30 @@ import { mapActiveToValues, shuffle } from "../utilities";
 import { Head } from "../components/Head";
 
 export const Quiz: React.FC = () => {
-	const {
-		dispatch,
-		state: { kata }
-	} = useGlobalStateContext();
+	const { dispatch, state } = useGlobalStateContext();
 	const [activeKata, setActiveKata] = useState<Record<string, string>[]>([]);
 	const history = useHistory();
+	const { hiragana, katakana } = state;
+	const { type } = useParams<{ type: "hiragana" | "katakana" }>();
 
 	const handleFinish = () => {
-		history.push("/result");
+		history.push(`/result/${type}`);
 	};
 
 	useEffect(() => {
 		return () => {
-			dispatch({ type: "REMOVE_ALL_HIRAGANA" });
+			dispatch({ type: "REMOVE_ALL", payload: { type } });
 		};
-	}, [dispatch]);
+	}, [dispatch, type]);
 
 	useEffect(() => {
 		setActiveKata(prevState => {
-			const mainHiragana = mapActiveToValues(kata, "main");
-			const dakutenHiragana = mapActiveToValues(kata, "dakuten");
-			const combinationHiragana = mapActiveToValues(kata, "dakutenCombination");
+			const kata = type === "hiragana" ? hiragana.kata : katakana.kata;
+			const main = mapActiveToValues(type, kata, "main");
+			const dakuten = mapActiveToValues(type, kata, "dakuten");
+			const combination = mapActiveToValues(type, kata, "dakutenCombination");
 
-			const allActiveKata = [
-				...mainHiragana,
-				...dakutenHiragana,
-				...combinationHiragana,
-				...prevState
-			];
+			const allActiveKata = [...main, ...dakuten, ...combination, ...prevState];
 
 			return shuffle(allActiveKata);
 		});
@@ -46,7 +41,8 @@ export const Quiz: React.FC = () => {
 		<div id="quizPage">
 			<Head title="Quiz" />
 			<h1 className="blueText textCenter">
-				Type Romaji for the Hiragana That You Know!
+				Type Romaji for the{" "}
+				{type[0].toUpperCase() + type.substr(1, type.length)} That You Know!
 			</h1>
 			<ul>
 				{INSTRUCTIONS.map((text, i) => (

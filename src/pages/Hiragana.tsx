@@ -15,36 +15,37 @@ export const Hiragana: React.FC = () => {
 		false
 	);
 	const { main, dakuten, dakutenCombination } = HIRAGANA_MAPPING;
+	const payload: { type: "hiragana" } = { type: "hiragana" };
 
 	const handleAllHiraganaChange = () => {
 		if (allHiraganaActive) {
-			dispatch({ type: "REMOVE_ALL_HIRAGANA" });
+			dispatch({ type: "REMOVE_ALL", payload });
 		} else {
-			dispatch({ type: "ADD_ALL_HIRAGANA" });
+			dispatch({ type: "ADD_ALL", payload });
 		}
 		setAllHiraganaActive(prevState => !prevState);
 	};
 	const handleMainHiraganaChange = () => {
 		if (mainHiraganaActive) {
-			dispatch({ type: "REMOVE_MAIN_HIRAGANA" });
+			dispatch({ type: "REMOVE_MAIN", payload });
 		} else {
-			dispatch({ type: "ADD_MAIN_HIRAGANA" });
+			dispatch({ type: "ADD_MAIN", payload });
 		}
 		setMainHiraganaActive(prevState => !prevState);
 	};
 	const handleDakutenHiraganaChange = () => {
 		if (dakutenHiraganaActive) {
-			dispatch({ type: "REMOVE_DAKUTEN_HIRAGANA" });
+			dispatch({ type: "REMOVE_DAKUTEN", payload });
 		} else {
-			dispatch({ type: "ADD_DAKUTEN_HIRAGANA" });
+			dispatch({ type: "ADD_DAKUTEN", payload });
 		}
 		setDakutenHiraganaActive(prevState => !prevState);
 	};
 	const handleCombinationHiraganaChange = () => {
 		if (combinationHiraganaActive) {
-			dispatch({ type: "REMOVE_COMBINATION_HIRAGANA" });
+			dispatch({ type: "REMOVE_COMBINATION", payload });
 		} else {
-			dispatch({ type: "ADD_COMBINATION_HIRAGANA" });
+			dispatch({ type: "ADD_COMBINATION", payload });
 		}
 		setCombinationHiraganaActive(prevState => !prevState);
 	};
@@ -126,7 +127,7 @@ export const Hiragana: React.FC = () => {
 				</div>
 			</div>
 			<div className="relativeCenter">
-				<Link to="/quiz" className="btn btn-primary btn-lg">
+				<Link to="/quiz/hiragana" className="btn btn-primary btn-lg">
 					Start Quiz!
 				</Link>
 			</div>
