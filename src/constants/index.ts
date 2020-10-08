@@ -168,6 +168,176 @@ export const HIRAGANA_MAPPING = {
 	}
 };
 
+export const KATAKANA_MAPPING = {
+	main: {
+		a: {
+			a: "ア",
+			i: "イ",
+			u: "ウ",
+			e: "エ",
+			o: "オ"
+		},
+		ka: {
+			ka: "カ",
+			ki: "キ",
+			ku: "ク",
+			ke: "ケ",
+			ko: "コ"
+		},
+		sa: {
+			sa: "サ",
+			shi: "シ",
+			su: "ス",
+			se: "セ",
+			so: "ソ"
+		},
+		ta: {
+			ta: "タ",
+			chi: "チ",
+			tsu: "ツ",
+			te: "テ",
+			to: "ト"
+		},
+		na: {
+			na: "カ",
+			ni: "キ",
+			nu: "ク",
+			ne: "ケ",
+			no: "コ"
+		},
+		ha: {
+			ha: "ハ",
+			hi: "ヒ",
+			fu: "フ",
+			he: "ヘ",
+			ho: "ホ"
+		},
+		ma: {
+			ma: "ハ",
+			mi: "ヒ",
+			mu: "フ",
+			me: "ヘ",
+			mo: "ホ"
+		},
+		ya: {
+			ya: "ヤ",
+			yu: "ユ",
+			yo: "ヨ"
+		},
+		ra: {
+			ra: "ラ",
+			ri: "リ",
+			ru: "ル",
+			re: "レ",
+			ro: "ロ"
+		},
+		wa: {
+			wa: "ワ",
+			wo: "ヲ",
+			n: "ン"
+		}
+	},
+	dakuten: {
+		ga: {
+			ga: "ガ",
+			gi: "ギ",
+			gu: "グ",
+			ge: "ゲ",
+			go: "ゴ"
+		},
+		za: {
+			za: "ザ",
+			ji: "ジ",
+			zu: "ズ",
+			ze: "ゼ",
+			zo: "ゾ"
+		},
+		da: {
+			da: "ダ",
+			di: "ジ",
+			du: "ズ",
+			de: "デ",
+			do: "ド"
+		},
+		ba: {
+			ba: "バ",
+			bi: "ビ",
+			bu: "ブ",
+			be: "ベ",
+			bo: "ボ"
+		},
+		pa: {
+			pa: "パ",
+			pi: "ピ",
+			pu: "プ",
+			pe: "ペ",
+			po: "ポ"
+		}
+	},
+	dakutenCombination: {
+		kya: {
+			kya: "キャ",
+			kyu: "キュ",
+			kyo: "キョ"
+		},
+		hya: {
+			hya: "ヒャ",
+			hyu: "ヒュ",
+			hyo: "ヒョ"
+		},
+		jya: {
+			jya: "ジャ",
+			jyu: "ジュ",
+			jyo: "ジョ"
+		},
+		sha: {
+			sha: "シャ",
+			shu: "シュ",
+			sho: "ショ"
+		},
+		mya: {
+			mya: "ミャ",
+			myu: "ミュ",
+			myo: "ミョ"
+		},
+		dzya: {
+			dzya: "ヂャ",
+			dzyu: "ヂュ",
+			dzyo: "ヂョ"
+		},
+		cha: {
+			cha: "チャ",
+			chu: "チュ",
+			cho: "チョ"
+		},
+		rya: {
+			rya: "リャ",
+			ryu: "リュ",
+			ryo: "リョ"
+		},
+		bya: {
+			bya: "ビャ",
+			byu: "ビュ",
+			byo: "ビョ"
+		},
+		pya: {
+			pya: "ピャ",
+			pyu: "ピュ",
+			pyo: "ピョ"
+		},
+		nya: {
+			nya: "ニャ",
+			nyu: "ニュ",
+			nyo: "ニョ"
+		},
+		gya: {
+			gya: "ギャ",
+			gyu: "ギュ",
+			gyo: "ギョ"
+		}
+	}
+};
+
 export const INSTRUCTIONS = [
 	"Type your answer in romaji in the card's text field",
 	"Press ENTER to submit",
