@@ -68,9 +68,11 @@ const reducer = (state: StateContext, action: Action) => {
 		case "REMOVE_KATA":
 			return {
 				...state,
-				kata: state[action.payload.type].kata.filter(
-					ele => ele !== action.payload.kata
-				)
+				[action.payload.type]: {
+					kata: state[action.payload.type].kata.filter(
+						ele => ele !== action.payload.kata
+					)
+				}
 			};
 		case "ADD_ALL":
 			if (action.payload.type === "hiragana") {
@@ -125,11 +127,7 @@ const reducer = (state: StateContext, action: Action) => {
 			}
 		case "REMOVE_MAIN":
 			// TODO: Change
-			if (action.payload.type === "hiragana") {
-				return { ...state, hiragana: { kata: [] } };
-			} else {
-				return { ...state, katakana: { kata: [] } };
-			}
+			return { ...state, [action.payload.type]: { kata: [] } };
 		case "ADD_DAKUTEN":
 			if (action.payload.type === "hiragana") {
 				return {

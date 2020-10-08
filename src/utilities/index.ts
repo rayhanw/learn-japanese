@@ -40,9 +40,25 @@ const ALL_DAKUTEN_COMBINATION_HIRAGANA_KEYS = Object.values(
 )
 	.map(k => Object.keys(k))
 	.flat();
+const ALL_MAIN_KATAKANA_KEYS = Object.values(KATAKANA_MAPPING.main)
+	.map(k => Object.keys(k))
+	.flat();
+const ALL_DAKUTEN_KATAKANA_KEYS = Object.values(KATAKANA_MAPPING.dakuten)
+	.map(k => Object.keys(k))
+	.flat();
+const ALL_DAKUTEN_COMBINATION_KATAKANA_KEYS = Object.values(
+	KATAKANA_MAPPING.dakutenCombination
+)
+	.map(k => Object.keys(k))
+	.flat();
 
 export const ALL_HIRAGANA_KEYS = {
 	mainHiragana: ALL_MAIN_HIRAGANA_KEYS,
 	dakutenHiragana: ALL_DAKUTEN_HIRAGANA_KEYS,
 	dakutenCombination: ALL_DAKUTEN_COMBINATION_HIRAGANA_KEYS
+};
+export const ALL_KATAKANA_KEYS = {
+	mainKatakana: ALL_MAIN_KATAKANA_KEYS,
+	dakutenKatakana: ALL_DAKUTEN_KATAKANA_KEYS,
+	dakutenCombination: ALL_DAKUTEN_COMBINATION_KATAKANA_KEYS
 };

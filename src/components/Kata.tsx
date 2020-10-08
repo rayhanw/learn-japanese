@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useGlobalStateContext } from "../contexts/globalState";
 import useDidMountEffect from "../hooks/useDidMountEffect";
-import { ALL_HIRAGANA_KEYS } from "../utilities";
+import { ALL_HIRAGANA_KEYS, ALL_KATAKANA_KEYS } from "../utilities";
+import { useParams } from "react-router-dom";
 
 interface KataProps {
 	japanese: string;
@@ -17,6 +18,7 @@ export const Kata: React.FC<KataProps> = ({ japanese, answer }) => {
 		state: { result },
 		dispatch
 	} = useGlobalStateContext();
+	const { type } = useParams<{ type: "hiragana" | "katakana" }>();
 	const labelClass =
 		isCorrect === "pending" ? "default" : isCorrect ? "correct" : "wrong";
 
@@ -32,12 +34,26 @@ export const Kata: React.FC<KataProps> = ({ japanese, answer }) => {
 	const handleFocus = () => {
 		setIsFocused(prevState => !prevState);
 	};
+	const isHiragana = type === "hiragana";
 
 	useDidMountEffect(() => {
+		console.log({ type });
 		let group: "main" | "dakuten" | "dakutenCombination";
-		if (ALL_HIRAGANA_KEYS.mainHiragana.includes(answer)) {
+		let keys: any;
+		let mainKey: {
+			main: "mainHiragana" | "mainKatakana";
+			dakuten: "dakutenHiragana" | "dakutenKatakana";
+		};
+		if (isHiragana) {
+			keys = ALL_HIRAGANA_KEYS;
+			mainKey = { main: "mainHiragana", dakuten: "dakutenHiragana" };
+		} else {
+			keys = ALL_KATAKANA_KEYS;
+			mainKey = { main: "mainKatakana", dakuten: "dakutenKatakana" };
+		}
+		if (keys[mainKey.main].includes(answer)) {
 			group = "main";
-		} else if (ALL_HIRAGANA_KEYS.dakutenHiragana.includes(answer)) {
+		} else if (keys[mainKey.dakuten].includes(answer)) {
 			group = "dakuten";
 		} else {
 			group = "dakutenCombination";
