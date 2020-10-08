@@ -16,16 +16,16 @@ export const App: React.FC = () => {
 					<Navbar />
 					<main id="content">
 						<Switch>
-							<Route path="/quiz">
+							<Route path="/quiz/:type">
 								<Quiz />
 							</Route>
 							<Route path="/katakana">
 								<Katakana />
 							</Route>
-							<Route path="/result">
+							<Route path="/result/:type">
 								<Result />
 							</Route>
-							<Route path={["/", "/hiragana"]}>
+							<Route exact path={["/", "/hiragana"]}>
 								<Hiragana />
 							</Route>
 						</Switch>
