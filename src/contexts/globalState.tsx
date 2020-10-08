@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { HIRAGANA_MAPPING } from "../constants";
+import { HIRAGANA_MAPPING, KATAKANA_MAPPING } from "../constants";
 
 interface QuizResult {
 	main: Record<string, Record<string, boolean>>;
@@ -11,21 +11,34 @@ interface QuizResultPayload {
 	result: Record<string, boolean>;
 }
 export interface StateContext {
-	kata: string[];
+	hiragana: { kata: string[] };
+	katakana: { kata: string[] };
 	result: QuizResult;
 }
+
+type AddMultipleActionTypes =
+	| "ADD_ALL"
+	| "ADD_MAIN"
+	| "ADD_DAKUTEN"
+	| "ADD_COMBINATION";
+type RemoveMultipleActionTypes =
+	| "REMOVE_ALL"
+	| "REMOVE_MAIN"
+	| "REMOVE_DAKUTEN"
+	| "REMOVE_COMBINATION";
+
 export type Action =
-	| { type: "ADD_KATA" | "REMOVE_KATA"; payload: string }
 	| {
-			type:
-				| "ADD_ALL_HIRAGANA"
-				| "REMOVE_ALL_HIRAGANA"
-				| "ADD_MAIN_HIRAGANA"
-				| "REMOVE_MAIN_HIRAGANA"
-				| "ADD_DAKUTEN_HIRAGANA"
-				| "REMOVE_DAKUTEN_HIRAGANA"
-				| "ADD_COMBINATION_HIRAGANA"
-				| "REMOVE_COMBINATION_HIRAGANA";
+			type: "ADD_KATA" | "REMOVE_KATA";
+			payload: { kata: string; type: "hiragana" | "katakana" };
+	  }
+	| {
+			type: AddMultipleActionTypes;
+			payload: { type: "hiragana" | "katakana" };
+	  }
+	| {
+			type: RemoveMultipleActionTypes;
+			payload: { type: "hiragana" | "katakana" };
 	  }
 	| { type: "ADD_RESULT"; payload: QuizResultPayload }
 	| { type: "CLEAR_RESULT" };
@@ -35,7 +48,8 @@ export interface Store {
 }
 
 const initialState: StateContext = {
-	kata: [],
+	hiragana: { kata: [] },
+	katakana: { kata: [] },
 	result: { main: {}, dakuten: {}, dakutenCombination: {} }
 };
 const GlobalStateContext = createContext<Store>({
@@ -45,51 +59,127 @@ const GlobalStateContext = createContext<Store>({
 const reducer = (state: StateContext, action: Action) => {
 	switch (action.type) {
 		case "ADD_KATA":
-			return { ...state, kata: [...state.kata, action.payload] };
+			return {
+				...state,
+				[action.payload.type]: {
+					kata: [...state[action.payload.type].kata, action.payload.kata]
+				}
+			};
 		case "REMOVE_KATA":
 			return {
 				...state,
-				kata: state.kata.filter(ele => ele !== action.payload)
+				kata: state[action.payload.type].kata.filter(
+					ele => ele !== action.payload.kata
+				)
 			};
-		case "ADD_ALL_HIRAGANA":
-			return {
-				...state,
-				kata: [
-					...state.kata,
-					...Object.keys(HIRAGANA_MAPPING.main),
-					...Object.keys(HIRAGANA_MAPPING.dakuten),
-					...Object.keys(HIRAGANA_MAPPING.dakutenCombination)
-				]
-			};
-		case "REMOVE_ALL_HIRAGANA":
-			return { ...state, kata: [] };
-		case "ADD_MAIN_HIRAGANA":
-			return {
-				...state,
-				kata: [...state.kata, ...Object.keys(HIRAGANA_MAPPING.main)]
-			};
-		case "REMOVE_MAIN_HIRAGANA":
+		case "ADD_ALL":
+			if (action.payload.type === "hiragana") {
+				return {
+					...state,
+					hiragana: {
+						kata: [
+							...state.hiragana.kata,
+							...Object.keys(HIRAGANA_MAPPING.main),
+							...Object.keys(HIRAGANA_MAPPING.dakuten),
+							...Object.keys(HIRAGANA_MAPPING.dakutenCombination)
+						]
+					}
+				};
+			} else {
+				return {
+					...state,
+					katakana: {
+						kata: [
+							...state.katakana.kata,
+							...Object.keys(KATAKANA_MAPPING.main),
+							...Object.keys(KATAKANA_MAPPING.dakuten),
+							...Object.keys(KATAKANA_MAPPING.dakutenCombination)
+						]
+					}
+				};
+			}
+
+		case "REMOVE_ALL":
+			return { ...state, [action.payload.type]: { kata: [] } };
+		case "ADD_MAIN":
+			if (action.payload.type === "hiragana") {
+				return {
+					...state,
+					hiragana: {
+						kata: [
+							...state.hiragana.kata,
+							...Object.keys(HIRAGANA_MAPPING.main)
+						]
+					}
+				};
+			} else {
+				return {
+					...state,
+					katakana: {
+						kata: [
+							...state.katakana.kata,
+							...Object.keys(KATAKANA_MAPPING.main)
+						]
+					}
+				};
+			}
+		case "REMOVE_MAIN":
 			// TODO: Change
-			return { ...state, kata: [] };
-		case "ADD_DAKUTEN_HIRAGANA":
-			return {
-				...state,
-				kata: [...state.kata, ...Object.keys(HIRAGANA_MAPPING.dakuten)]
-			};
-		case "REMOVE_DAKUTEN_HIRAGANA":
+			if (action.payload.type === "hiragana") {
+				return { ...state, hiragana: { kata: [] } };
+			} else {
+				return { ...state, katakana: { kata: [] } };
+			}
+		case "ADD_DAKUTEN":
+			if (action.payload.type === "hiragana") {
+				return {
+					...state,
+					hiragana: {
+						kata: [
+							...state.hiragana.kata,
+							...Object.keys(HIRAGANA_MAPPING.dakuten)
+						]
+					}
+				};
+			} else {
+				return {
+					...state,
+					katakana: {
+						kata: [
+							...state.katakana.kata,
+							...Object.keys(KATAKANA_MAPPING.dakuten)
+						]
+					}
+				};
+			}
+		case "REMOVE_DAKUTEN":
 			// TODO: Change
-			return { ...state, kata: [] };
-		case "ADD_COMBINATION_HIRAGANA":
-			return {
-				...state,
-				kata: [
-					...state.kata,
-					...Object.keys(HIRAGANA_MAPPING.dakutenCombination)
-				]
-			};
-		case "REMOVE_COMBINATION_HIRAGANA":
+			return { ...state, [action.payload.type]: { kata: [] } };
+		case "ADD_COMBINATION":
+			if (action.payload.type === "hiragana") {
+				return {
+					...state,
+					hiragana: {
+						kata: [
+							...state.hiragana.kata,
+							...Object.keys(HIRAGANA_MAPPING.dakutenCombination)
+						]
+					}
+				};
+			} else {
+				return {
+					...state,
+					katakana: {
+						kata: [
+							...state.katakana.kata,
+							...Object.keys(KATAKANA_MAPPING.dakutenCombination)
+						]
+					}
+				};
+			}
+		case "REMOVE_COMBINATION":
 			// TODO: Change
-			return { ...state, kata: [] };
+			return { ...state, [action.payload.type]: { kata: [] } };
 		case "ADD_RESULT":
 			return {
 				...state,
