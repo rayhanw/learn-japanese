@@ -37,7 +37,6 @@ export const Kata: React.FC<KataProps> = ({ japanese, answer }) => {
 	const isHiragana = type === "hiragana";
 
 	useDidMountEffect(() => {
-		console.log({ type });
 		let group: "main" | "dakuten" | "dakutenCombination";
 		let keys: any;
 		let mainKey: {
