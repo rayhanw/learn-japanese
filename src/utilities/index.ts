@@ -1,17 +1,25 @@
-import { HIRAGANA_MAPPING } from "../constants";
+import { HIRAGANA_MAPPING, KATAKANA_MAPPING } from "../constants";
 
 export const shuffle = (array: any[]) => array.sort(() => Math.random() - 0.5);
 
 export const mapActiveToValues = (
+	type: "katakana" | "hiragana",
 	activeKata: string[],
-	hiraganaKey: "main" | "dakuten" | "dakutenCombination"
+	key: "main" | "dakuten" | "dakutenCombination"
 ) => {
 	const kataToBeInputted: Record<string, string>[] = [];
-	const hiraganaKeys = Object.keys(HIRAGANA_MAPPING[hiraganaKey]);
+	let keys = Object.keys(
+		type === "hiragana" ? HIRAGANA_MAPPING[key] : KATAKANA_MAPPING[key]
+	);
 
 	activeKata.forEach(kata => {
-		if (hiraganaKeys.includes(kata)) {
-			const words = (HIRAGANA_MAPPING[hiraganaKey] as any)[kata];
+		if (keys.includes(kata)) {
+			let words: Record<string, string>;
+			if (type === "hiragana") {
+				words = (HIRAGANA_MAPPING[key] as any)[kata];
+			} else {
+				words = (KATAKANA_MAPPING[key] as any)[kata];
+			}
 			Object.keys(words).forEach(word => {
 				kataToBeInputted.push({ [word]: words[word] });
 			});
