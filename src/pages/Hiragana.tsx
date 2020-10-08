@@ -55,7 +55,7 @@ export const Hiragana: React.FC = () => {
 			<Head title="Hiragana Quiz" />
 			<div className="mb-3">
 				<h1 className="textCenter blueText mb-3">
-					Clone of Tofugu's Learn Hiragana Quiz (+ Katakana)
+					Hiragana Quiz
 				</h1>
 				<div className="squashedIn">
 					<p>

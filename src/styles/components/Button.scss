@@ -34,4 +34,8 @@ a.btn {
 	&.btn-lg {
 		line-height: 60px;
 	}
+
+	&.verticalCenterText {
+		@extend .flexAllCenter;
+	}
 }

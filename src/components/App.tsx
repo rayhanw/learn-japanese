@@ -7,6 +7,7 @@ import { Quiz } from "../pages/Quiz";
 import { Layout } from "./Layout";
 import { Navbar } from "./Navbar";
 import { Result } from "../pages/Result";
+import { Landing } from "../pages/Landing";
 
 export const App: React.FC = () => {
 	return (
@@ -25,8 +26,11 @@ export const App: React.FC = () => {
 							<Route path="/result/:type">
 								<Result />
 							</Route>
-							<Route exact path={["/", "/hiragana"]}>
+							<Route path="/hiragana">
 								<Hiragana />
+							</Route>
+							<Route exact path="/">
+								<Landing />
 							</Route>
 						</Switch>
 					</main>
