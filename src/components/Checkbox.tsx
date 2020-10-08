@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useGlobalStateContext } from "../contexts/globalState";
+import { useLocation } from "react-router-dom";
 
 interface CheckboxProps {
 	text: string;
@@ -19,13 +20,24 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 	const [localChecked, setLocalChecked] = useState(false);
 	const { state, dispatch } = useGlobalStateContext();
 	const titleText = hiragana === "" ? text : `${hiragana}/${text}`;
+	const location = useLocation();
+	let type: "katakana" | "hiragana";
+
+	if (location.pathname.includes("katakana")) {
+		type = "katakana";
+	} else {
+		type = "hiragana";
+	}
 
 	const handleOneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		setLocalChecked(prevState => !prevState);
-		if (state.kata.includes(e.target.value)) {
-			dispatch({ type: "REMOVE_KATA", payload: e.target.value });
+		if (state[type].kata.includes(e.target.value)) {
+			dispatch({
+				type: "REMOVE_KATA",
+				payload: { kata: e.target.value, type }
+			});
 		} else {
-			dispatch({ type: "ADD_KATA", payload: e.target.value });
+			dispatch({ type: "ADD_KATA", payload: { kata: e.target.value, type } });
 		}
 	};
 
