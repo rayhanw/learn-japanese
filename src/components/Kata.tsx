@@ -22,7 +22,7 @@ export const Kata: React.FC<KataProps> = ({ japanese, answer }) => {
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		if (e.target.value !== "") {
-			if (answer === e.target.value) {
+			if (answer === e.target.value.toLowerCase()) {
 				setIsCorrect(true);
 			} else {
 				setIsCorrect(false);
