@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Head } from "../components/Head";
 
 export const Landing: React.FC = () => {
 	return (
 		<div id="landingPage">
+			<Head title="Home" />
 			<h1 className="textCenter blueText">
 				Clone of Tofugu's Learn Hiragana Quiz (+ Katakana)
 			</h1>
