@@ -1,7 +1,7 @@
 interface QuizResult {
-	main: Record<string, Record<string, boolean>>;
-	dakuten: Record<string, Record<string, boolean>>;
-	dakutenCombination: Record<string, Record<string, boolean>>;
+	main: Record<string, boolean>;
+	dakuten: Record<string, boolean>;
+	dakutenCombination: Record<string, boolean>;
 }
 interface QuizResultPayload {
 	group: "main" | "dakuten" | "dakutenCombination";

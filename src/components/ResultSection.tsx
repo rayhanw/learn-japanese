@@ -1,8 +1,9 @@
 import React from "react";
+import { ResultCard } from "./ResultCard";
 
 interface ResultSectionProps {
 	title: string;
-	content: Record<string, Record<string, boolean>>;
+	content: Record<string, boolean>;
 }
 
 export const ResultSection: React.FC<ResultSectionProps> = ({
@@ -24,20 +25,10 @@ export const ResultSection: React.FC<ResultSectionProps> = ({
         <span className="fontSm blackText normalWeight ml-1">{trueLength}/{values.length}{" "}({truePercentage}%)</span>
       </h2>
 			<div className="flex flexWrap">
-				{keys.map((key, i) => (
-					<div className="resultCard" key={i}>
-						<div className="whiteText">
-							<p className="noMargin">{key}</p>
-						</div>
-						<div className="flex">
-							{content[key] ? (
-								<input type="radio" />
-							) : (
-								<div className="whiteText">x: 1</div>
-							)}
-						</div>
-					</div>
-				))}
+				{keys.map((key, i) => {
+					return <ResultCard kataKey={key} value={content[key]} key={i} />
+        }
+			  )}
 			</div>
 		</div>
 	);
