@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Head } from "../components/Head";
 
-export const Landing: React.FC = () => {
+const Landing: React.FC = () => {
 	return (
 		<div id="landingPage">
 			<Head title="Home" />
@@ -40,3 +40,5 @@ export const Landing: React.FC = () => {
 		</div>
 	);
 };
+
+export default Landing;

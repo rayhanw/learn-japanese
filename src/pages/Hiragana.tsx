@@ -6,7 +6,7 @@ import { useGlobalStateContext } from "../contexts/globalState";
 import { Link } from "react-router-dom";
 import { Head } from "../components/Head";
 
-export const Hiragana: React.FC = () => {
+const Hiragana: React.FC = () => {
 	const { dispatch } = useGlobalStateContext();
 	const [allHiraganaActive, setAllHiraganaActive] = useState(false);
 	const [mainHiraganaActive, setMainHiraganaActive] = useState(false);
@@ -54,9 +54,7 @@ export const Hiragana: React.FC = () => {
 		<div id="hiraganaPage">
 			<Head title="Hiragana Quiz" />
 			<div className="mb-3">
-				<h1 className="textCenter blueText">
-					Hiragana Quiz
-				</h1>
+				<h1 className="textCenter blueText">Hiragana Quiz</h1>
 			</div>
 			<Checkbox
 				text="All Hiragana"
@@ -120,3 +118,5 @@ export const Hiragana: React.FC = () => {
 		</div>
 	);
 };
+
+export default Hiragana;

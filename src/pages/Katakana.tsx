@@ -6,7 +6,7 @@ import { Checkbox } from "../components/Checkbox";
 import { CheckboxCollection } from "../components/CheckboxCollection";
 import { Link } from "react-router-dom";
 
-export const Katakana: React.FC = () => {
+const Katakana: React.FC = () => {
 	const { dispatch } = useGlobalStateContext();
 	const [allKatakanaActive, setAllKatakanaActive] = useState(false);
 	const [mainKatakanaActive, setMainKatakanaActive] = useState(false);
@@ -54,9 +54,7 @@ export const Katakana: React.FC = () => {
 		<div id="hiraganaPage">
 			<Head title="Katakana Quiz" />
 			<div className="mb-3">
-				<h1 className="textCenter blueText">
-					Katakana Quiz
-				</h1>
+				<h1 className="textCenter blueText">Katakana Quiz</h1>
 			</div>
 			<Checkbox
 				text="All Katakana"
@@ -120,3 +118,5 @@ export const Katakana: React.FC = () => {
 		</div>
 	);
 };
+
+export default Katakana;

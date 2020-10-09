@@ -6,7 +6,7 @@ import { useGlobalStateContext } from "../contexts/globalState";
 import { mapActiveToValues, shuffle } from "../utilities";
 import { Head } from "../components/Head";
 
-export const Quiz: React.FC = () => {
+const Quiz: React.FC = () => {
 	const { dispatch, state } = useGlobalStateContext();
 	const [activeKata, setActiveKata] = useState<Record<string, string>[]>([]);
 	const history = useHistory();
@@ -66,3 +66,5 @@ export const Quiz: React.FC = () => {
 		</div>
 	);
 };
+
+export default Quiz;

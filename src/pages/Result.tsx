@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import { Head } from "../components/Head";
 import { ResultSection } from "../components/ResultSection";
 
-export const Result: React.FC = () => {
+const Result: React.FC = () => {
 	const {
 		state: { result },
 		dispatch
@@ -38,3 +38,5 @@ export const Result: React.FC = () => {
 		</div>
 	);
 };
+
+export default Result;
