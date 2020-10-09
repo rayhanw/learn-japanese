@@ -27,6 +27,15 @@
 	color: var(--blue-secondary);
 }
 
+.blackText {
+	color: black;
+	font-weight: normal;
+}
+
+.normalWeight {
+	font-weight: normal;
+}
+
 .whiteText {
 	color: white;
 }
@@ -43,6 +52,10 @@
 	margin-top: var(--space-lg);
 }
 
+.ml-1 {
+	margin-left: var(--space-sm);
+}
+
 .mr-2 {
 	margin-right: var(--space-md);
 }
@@ -55,4 +68,8 @@
 
 .noMargin {
 	margin: 0;
+}
+
+.fontSm {
+	font-size: 14px;
 }
