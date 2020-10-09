@@ -54,23 +54,9 @@ export const Katakana: React.FC = () => {
 		<div id="hiraganaPage">
 			<Head title="Katakana Quiz" />
 			<div className="mb-3">
-				<h1 className="textCenter blueText mb-3">
-					Clone of Tofugu's Learn Hiragana Quiz (+ Katakana)
+				<h1 className="textCenter blueText">
+					Katakana Quiz
 				</h1>
-				<div className="squashedIn">
-					<p>
-						If you haven't heard about Tofugu and want to learn Japanese, please
-						take your time and read{" "}
-						<a
-							href="https://www.tofugu.com/learn-japanese/"
-							rel="noreferrer noopener"
-							target="_blank"
-						>
-							this article by Tofugu
-						</a>{" "}
-						first!
-					</p>
-				</div>
 			</div>
 			<Checkbox
 				text="All Katakana"

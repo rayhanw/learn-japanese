@@ -347,6 +347,10 @@ export const INSTRUCTIONS = [
 ];
 
 export const LINKS = [
+  {
+    text: "Home",
+    url: "/"
+  },
 	{
 		text: "Hiragana",
 		url: "/hiragana"
