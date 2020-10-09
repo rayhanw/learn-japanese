@@ -11,6 +11,10 @@
 	&.flexWrap {
 		flex-wrap: wrap;
 	}
+
+	&.justifyBetween {
+		justify-content: space-between;
+	}
 }
 
 .flexAllCenter {
@@ -48,16 +52,21 @@
 	margin-bottom: var(--space-lg);
 }
 
+.mb-1 {
+	// margin-bottom: var(--space-sm) / 2px;
+	margin-bottom: 4px;
+}
+
 .mt-3 {
 	margin-top: var(--space-lg);
 }
 
-.ml-1 {
-	margin-left: var(--space-sm);
-}
-
 .mr-2 {
 	margin-right: var(--space-md);
+}
+
+.mr-1 {
+	margin-right: 4px;
 }
 
 .squashedIn {
@@ -72,4 +81,8 @@
 
 .fontSm {
 	font-size: 14px;
+}
+
+.alignSelfEnd {
+	align-self: flex-end;
 }

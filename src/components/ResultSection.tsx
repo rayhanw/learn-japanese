@@ -19,11 +19,11 @@ export const ResultSection: React.FC<ResultSectionProps> = ({
   if (keys.length === 0) return null;
 
 	return (
-		<div>
-			<h2 className="title">
-        {title}
-        <span className="fontSm blackText normalWeight ml-1">{trueLength}/{values.length}{" "}({truePercentage}%)</span>
-      </h2>
+		<div className="resultSection">
+			<div className="flex">
+        <h2 className="title mr-1">{title}</h2>
+        <span className="fontSm blackText normalWeight alignSelfEnd mb-1">{trueLength}/{values.length}{" "}({truePercentage}%)</span>
+      </div>
 			<div className="flex flexWrap">
 				{keys.map((key, i) => {
 					return <ResultCard kataKey={key} value={content[key]} key={i} />
