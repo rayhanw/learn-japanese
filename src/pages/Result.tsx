@@ -1,5 +1,5 @@
 import React from "react";
-import { useGlobalStateContext } from "../contexts/globalState";
+import { useGlobalStateContext } from "../contexts/globalState/globalState";
 import { useHistory, useParams } from "react-router-dom";
 import { Head } from "../components/Head";
 import { ResultSection } from "../components/ResultSection";

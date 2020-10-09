@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import { Kata } from "../components/Kata";
 import { INSTRUCTIONS } from "../constants";
-import { useGlobalStateContext } from "../contexts/globalState";
+import { useGlobalStateContext } from "../contexts/globalState/globalState";
 import { mapActiveToValues, shuffle } from "../utilities";
 import { Head } from "../components/Head";
 

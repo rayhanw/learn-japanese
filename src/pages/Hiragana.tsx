@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Checkbox } from "../components/Checkbox";
 import { CheckboxCollection } from "../components/CheckboxCollection";
 import { HIRAGANA_MAPPING } from "../constants";
-import { useGlobalStateContext } from "../contexts/globalState";
+import { useGlobalStateContext } from "../contexts/globalState/globalState";
 import { Link } from "react-router-dom";
 import { Head } from "../components/Head";
 

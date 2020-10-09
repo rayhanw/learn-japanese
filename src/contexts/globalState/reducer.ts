@@ -1,62 +1,7 @@
-import React, { createContext, useContext, useReducer } from "react";
-import { HIRAGANA_MAPPING, KATAKANA_MAPPING } from "../constants";
+import { StateContext, Action } from "./types";
+import { HIRAGANA_MAPPING, KATAKANA_MAPPING } from "../../constants";
 
-interface QuizResult {
-	main: Record<string, Record<string, boolean>>;
-	dakuten: Record<string, Record<string, boolean>>;
-	dakutenCombination: Record<string, Record<string, boolean>>;
-}
-interface QuizResultPayload {
-	group: "main" | "dakuten" | "dakutenCombination";
-	result: Record<string, boolean>;
-}
-export interface StateContext {
-	hiragana: { kata: string[] };
-	katakana: { kata: string[] };
-	result: QuizResult;
-}
-
-type AddMultipleActionTypes =
-	| "ADD_ALL"
-	| "ADD_MAIN"
-	| "ADD_DAKUTEN"
-	| "ADD_COMBINATION";
-type RemoveMultipleActionTypes =
-	| "REMOVE_ALL"
-	| "REMOVE_MAIN"
-	| "REMOVE_DAKUTEN"
-	| "REMOVE_COMBINATION";
-
-export type Action =
-	| {
-			type: "ADD_KATA" | "REMOVE_KATA";
-			payload: { kata: string; type: "hiragana" | "katakana" };
-	  }
-	| {
-			type: AddMultipleActionTypes;
-			payload: { type: "hiragana" | "katakana" };
-	  }
-	| {
-			type: RemoveMultipleActionTypes;
-			payload: { type: "hiragana" | "katakana" };
-	  }
-	| { type: "ADD_RESULT"; payload: QuizResultPayload }
-	| { type: "CLEAR_RESULT" };
-export interface Store {
-	state: StateContext;
-	dispatch: React.Dispatch<Action>;
-}
-
-const initialState: StateContext = {
-	hiragana: { kata: [] },
-	katakana: { kata: [] },
-	result: { main: {}, dakuten: {}, dakutenCombination: {} }
-};
-const GlobalStateContext = createContext<Store>({
-	state: initialState,
-	dispatch: () => null
-});
-const reducer = (state: StateContext, action: Action) => {
+export const reducer = (state: StateContext, action: Action) => {
 	switch (action.type) {
 		case "ADD_KATA":
 			return {
@@ -201,19 +146,4 @@ const reducer = (state: StateContext, action: Action) => {
 		default:
 			return state;
 	}
-};
-
-export const useGlobalStateContext = () => useContext(GlobalStateContext);
-export const GlobalStateProvider = ({
-	children
-}: {
-	children: React.ReactNode;
-}) => {
-	const [state, dispatch] = useReducer(reducer, initialState);
-
-	return (
-		<GlobalStateContext.Provider value={{ state, dispatch }}>
-			{children}
-		</GlobalStateContext.Provider>
-	);
 };

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useGlobalStateContext } from "../contexts/globalState";
+import { useGlobalStateContext } from "../contexts/globalState/globalState";
 import useDidMountEffect from "../hooks/useDidMountEffect";
 import { ALL_HIRAGANA_KEYS, ALL_KATAKANA_KEYS } from "../utilities";
 import { useParams } from "react-router-dom";

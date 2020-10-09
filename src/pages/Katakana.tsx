@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Head } from "../components/Head";
-import { useGlobalStateContext } from "../contexts/globalState";
+import { useGlobalStateContext } from "../contexts/globalState/globalState";
 import { KATAKANA_MAPPING } from "../constants";
 import { Checkbox } from "../components/Checkbox";
 import { CheckboxCollection } from "../components/CheckboxCollection";

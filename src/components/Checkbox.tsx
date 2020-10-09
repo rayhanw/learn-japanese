@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useGlobalStateContext } from "../contexts/globalState";
+import { useGlobalStateContext } from "../contexts/globalState/globalState";
 import { useLocation } from "react-router-dom";
 
 interface CheckboxProps {

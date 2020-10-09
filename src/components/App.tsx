@@ -1,6 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { GlobalStateProvider } from "../contexts/globalState";
+import { GlobalStateProvider } from "../contexts/globalState/globalState";
 import { Layout } from "./Layout";
 import { Navbar } from "./Navbar";
 import { Loading } from "./Loading";
