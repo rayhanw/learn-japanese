@@ -1,6 +1,6 @@
 ---
-name: Bug
-about: Create a report to help us improve
+name: Kata Bug
+about: A report about Kata
 title: kata bug / [...]
 labels: 'bug'
 assignees: 'rayhanw'
