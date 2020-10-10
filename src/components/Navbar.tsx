@@ -12,6 +12,7 @@ export const Navbar: React.FC = () => {
 					</li>
 				))}
 			</ul>
+      <p className="noMargin">See an issue? Report <Link to="//github.com/rayhanw/learn-japanese/issues/new" target="_blank" rel="noreferrer noopener">here</Link></p>
 		</nav>
 	);
 };
