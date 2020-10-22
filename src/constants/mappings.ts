@@ -199,11 +199,11 @@ export const KATAKANA_MAPPING = {
 			to: "ト"
 		},
 		na: {
-			na: "カ",
-			ni: "キ",
-			nu: "ク",
-			ne: "ケ",
-			no: "コ"
+			na: "ナ",
+			ni: "ニ",
+			nu: "ヌ",
+			ne: "ネ",
+			no: "ノ"
 		},
 		ha: {
 			ha: "ハ",
@@ -213,11 +213,11 @@ export const KATAKANA_MAPPING = {
 			ho: "ホ"
 		},
 		ma: {
-			ma: "ハ",
-			mi: "ヒ",
-			mu: "フ",
-			me: "ヘ",
-			mo: "ホ"
+			ma: "マ",
+			mi: "ミ",
+			mu: "ム",
+			me: "メ",
+			mo: "モ"
 		},
 		ya: {
 			ya: "ヤ",
