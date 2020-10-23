@@ -32,7 +32,7 @@ const Quiz: React.FC = () => {
 
 			const allActiveKata = [...main, ...dakuten, ...combination, ...prevState];
 
-			return shuffle(allActiveKata);
+			return shuffle(shuffle(allActiveKata));
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
