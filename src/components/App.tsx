@@ -4,6 +4,7 @@ import { GlobalStateProvider } from "../contexts/globalState/globalState";
 import { Layout } from "./Layout";
 import { Navbar } from "./Navbar";
 import { Loading } from "./Loading";
+import { Footer } from "./Footer";
 
 const Hiragana = lazy(() => import("../pages/Hiragana"));
 const Katakana = lazy(() => import("../pages/Katakana"));
@@ -38,6 +39,7 @@ export const App: React.FC = () => {
 							</Switch>
 						</Suspense>
 					</main>
+					<Footer />
 				</Layout>
 			</GlobalStateProvider>
 		</Router>
