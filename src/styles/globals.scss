@@ -5,26 +5,38 @@ body {
 	font-family: "Noto Sans JP", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-color: white;
+	color: black;
+	transition: background-color 0.25s ease, color 0.25s ease;
 
 	&.dark {
-		background-color: var(--bg-dark);
+		background-color: var(--blue-primary);
+		color: white;
 
-		& {
+		.title {
 			color: white;
 		}
+
+		a {
+			color: var(--yellow-primary);
+
+			&:hover {
+				color: var(--yellow-secondary);
+			}
+		}
 	}
-}
 
-.title {
-	color: var(--blue-secondary);
-	text-align: center;
-}
+	.title {
+		color: var(--blue-secondary);
+		text-align: center;
+	}
 
-a {
-	color: var(--blue-secondary);
-	transition: color 0.25s ease;
+	a {
+		color: var(--blue-secondary);
+		transition: color 0.25s ease;
 
-	&:hover {
-		color: var(--blue-primary);
+		&:hover {
+			color: var(--blue-primary);
+		}
 	}
 }
