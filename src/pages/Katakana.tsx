@@ -54,7 +54,7 @@ const Katakana: React.FC = () => {
 		<div id="hiraganaPage">
 			<Head title="Katakana Quiz" />
 			<div className="mb-3">
-				<h1 className="textCenter blueText">Katakana Quiz</h1>
+				<h1 className="textCenter title">Katakana Quiz</h1>
 			</div>
 			<Checkbox
 				text="All Katakana"

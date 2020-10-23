@@ -40,7 +40,7 @@ const Quiz: React.FC = () => {
 	return (
 		<div id="quizPage">
 			<Head title="Quiz" />
-			<h1 className="blueText textCenter">
+			<h1 className="title textCenter">
 				Type Romaji for the{" "}
 				{type[0].toUpperCase() + type.substr(1, type.length)} That You Know!
 			</h1>

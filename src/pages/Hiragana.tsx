@@ -54,7 +54,7 @@ const Hiragana: React.FC = () => {
 		<div id="hiraganaPage">
 			<Head title="Hiragana Quiz" />
 			<div className="mb-3">
-				<h1 className="textCenter blueText">Hiragana Quiz</h1>
+				<h1 className="textCenter title">Hiragana Quiz</h1>
 			</div>
 			<Checkbox
 				text="All Hiragana"
