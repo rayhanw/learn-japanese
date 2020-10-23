@@ -32,3 +32,17 @@
 		margin-bottom: var(--space-md);
 	}
 }
+
+// Dark mode
+body.dark {
+	.checkboxWrapper {
+		background-color: var(--blue-primary);
+		border: var(--yellow-primary) 0.3vw solid;
+		color: var(--yellow-primary);
+
+		&.checked {
+			background-color: var(--yellow-primary);
+			color: var(--blue-primary);
+		}
+	}
+}
