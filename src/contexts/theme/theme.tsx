@@ -7,7 +7,14 @@ interface ThemeContext {
 	toggleTheme: () => void;
 }
 
-const ThemeContext = React.createContext<ThemeContext | null>(null);
+const ThemeContext = React.createContext<ThemeContext>({
+	theme:
+		window && window.matchMedia("(prefers-color-scheme: dark)").matches
+			? "dark"
+			: "light",
+	setTheme: () => null,
+	toggleTheme: () => null
+});
 ThemeContext.displayName = "ThemeContext";
 
 export const useThemeContext = () => useContext(ThemeContext);
