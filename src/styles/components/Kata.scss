@@ -116,3 +116,12 @@
 		}
 	}
 }
+
+body.dark {
+	.kata {
+		&.default {
+			background-color: var(--yellow-secondary);
+			border: 0.7vw var(--yellow-secondary) solid;
+		}
+	}
+}

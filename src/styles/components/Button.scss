@@ -39,3 +39,19 @@ a.btn {
 		@extend .flexAllCenter;
 	}
 }
+
+// Dark mode
+body.dark {
+	button.btn,
+	a.btn {
+		color: var(--blue-primary);
+
+		&.btn-primary {
+			background: var(--yellow-primary);
+
+			&:hover {
+				background: var(--yellow-secondary);
+			}
+		}
+	}
+}

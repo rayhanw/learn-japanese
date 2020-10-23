@@ -5,3 +5,13 @@
 		margin-bottom: 0;
 	}
 }
+
+body.dark {
+	.resultSection {
+		.flex {
+			span {
+				color: white;
+			}
+		}
+	}
+}

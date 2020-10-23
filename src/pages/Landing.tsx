@@ -6,7 +6,7 @@ const Landing: React.FC = () => {
 	return (
 		<div id="landingPage">
 			<Head title="Home" />
-			<h1 className="textCenter blueText">
+			<h1 className="textCenter title">
 				Clone of Tofugu's Learn Hiragana Quiz (+ Katakana)
 			</h1>
 			<div className="squashedIn">

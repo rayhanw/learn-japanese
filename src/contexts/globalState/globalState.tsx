@@ -11,6 +11,7 @@ const GlobalStateContext = createContext<Store>({
 	state: initialState,
 	dispatch: () => null
 });
+GlobalStateContext.displayName = "GlobalStateContext";
 
 export const useGlobalStateContext = () => useContext(GlobalStateContext);
 export const GlobalStateProvider = ({
