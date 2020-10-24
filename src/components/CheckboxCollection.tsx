@@ -21,7 +21,7 @@ export const CheckboxCollection: React.FC<CheckboxCollectionProps> = ({
 					<Checkbox
 						key={i}
 						text={key}
-						hiragana={(data as any)[key][key]}
+						alphabet={(data as any)[key][key]}
 						classList={shouldActivate ? "checked" : ""}
 					/>
 				))}

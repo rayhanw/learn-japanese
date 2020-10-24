@@ -4,14 +4,14 @@ import { useLocation } from "react-router-dom";
 
 interface CheckboxProps {
 	text: string;
-	hiragana: string;
+	alphabet: string;
 	classList?: string;
 	handleMultipleChange?: () => void;
 	checked?: boolean;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
-	hiragana,
+	alphabet,
 	text,
 	classList = "",
 	handleMultipleChange,
@@ -19,7 +19,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 }) => {
 	const [localChecked, setLocalChecked] = useState(false);
 	const { state, dispatch } = useGlobalStateContext();
-	const titleText = hiragana === "" ? text : `${hiragana}/${text}`;
+	const titleText = alphabet === "" ? text : `${alphabet}/${text}`;
 	const location = useLocation();
 	let type: "katakana" | "hiragana";
 
