@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import { Head } from "../components/Head";
-import { useGlobalStateContext } from "../contexts/globalState/globalState";
-import { KATAKANA_MAPPING } from "../constants";
-import { Checkbox } from "../components/Checkbox";
-import { CheckboxCollection } from "../components/CheckboxCollection";
 import { Link } from "react-router-dom";
+import { Checkbox } from "../components/Checkbox";
 import { CheckboxGroup } from "../components/CheckboxGroup";
+import { Head } from "../components/Head";
+import { KATAKANA_MAPPING } from "../constants";
+import { useGlobalStateContext } from "../contexts/globalState/globalState";
 
 const Katakana: React.FC = () => {
 	const { dispatch } = useGlobalStateContext();
