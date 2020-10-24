@@ -5,6 +5,7 @@ import { KATAKANA_MAPPING } from "../constants";
 import { Checkbox } from "../components/Checkbox";
 import { CheckboxCollection } from "../components/CheckboxCollection";
 import { Link } from "react-router-dom";
+import { CheckboxGroup } from "../components/CheckboxGroup";
 
 const Katakana: React.FC = () => {
 	const { dispatch } = useGlobalStateContext();
@@ -58,57 +59,34 @@ const Katakana: React.FC = () => {
 			</div>
 			<Checkbox
 				text="All Katakana"
-				hiragana=""
+				alphabet=""
 				classList={`${allKatakanaActive ? "checked" : ""}`}
 				handleMultipleChange={handleAllKatakanaChange}
 			/>
 			<div className="pageGrid">
-				<div>
-					<h2 className="title">Main Katakana</h2>
-					<CheckboxCollection
-						data={main}
-						shouldActivate={mainKatakanaActive || allKatakanaActive}
-					>
-						<Checkbox
-							text="All Main Katakana"
-							hiragana=""
-							classList="mb-2"
-							handleMultipleChange={handleMainKatakanaChange}
-							checked={mainKatakanaActive || allKatakanaActive}
-						/>
-					</CheckboxCollection>
-				</div>
-				<div>
-					<h2 className="title">Dakuten/Handakuten</h2>
-					<CheckboxCollection
-						data={dakuten}
-						columnCount="oneColumn"
-						shouldActivate={dakutenKatakanaActive || allKatakanaActive}
-					>
-						<Checkbox
-							text="All Dakuten Katakana"
-							hiragana=""
-							classList={`mb-2 ${dakutenKatakanaActive ? "checked" : ""}`}
-							handleMultipleChange={handleDakutenKatakanaChange}
-							checked={dakutenKatakanaActive || allKatakanaActive}
-						/>
-					</CheckboxCollection>
-				</div>
-				<div>
-					<h2 className="title">Combination</h2>
-					<CheckboxCollection
-						data={dakutenCombination}
-						shouldActivate={combinationKatakanaActive || allKatakanaActive}
-					>
-						<Checkbox
-							text="All Combination Katakana"
-							hiragana=""
-							classList={`mb-2 ${combinationKatakanaActive ? "checked" : ""}`}
-							handleMultipleChange={handleCombinationKatakanaChange}
-							checked={combinationKatakanaActive || allKatakanaActive}
-						/>
-					</CheckboxCollection>
-				</div>
+				<CheckboxGroup
+					title="Main Hiragana"
+					subtitle="All Main Katakana"
+					data={main}
+					shouldActivate={mainKatakanaActive || allKatakanaActive}
+					handleMultipleChange={handleMainKatakanaChange}
+				/>
+				<CheckboxGroup
+					title="Dakuten/Handakuten"
+					subtitle="All Dakuten Katakana"
+					data={dakuten}
+					shouldActivate={dakutenKatakanaActive || allKatakanaActive}
+					handleMultipleChange={handleDakutenKatakanaChange}
+					columnCount="oneColumn"
+					classList={`mb-2 ${dakutenKatakanaActive ? "checked" : ""}`}
+				/>
+				<CheckboxGroup
+					title="Combination"
+					subtitle="All Combination Katakana"
+					data={dakutenCombination}
+					shouldActivate={combinationKatakanaActive || allKatakanaActive}
+					handleMultipleChange={handleCombinationKatakanaChange}
+				/>
 			</div>
 			<div className="relativeCenter">
 				<Link to="/quiz/katakana" className="btn btn-primary btn-lg">

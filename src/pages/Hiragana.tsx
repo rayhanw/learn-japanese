@@ -58,7 +58,7 @@ const Hiragana: React.FC = () => {
 			</div>
 			<Checkbox
 				text="All Hiragana"
-				hiragana=""
+				alphabet=""
 				classList={`${allHiraganaActive ? "checked" : ""}`}
 				handleMultipleChange={handleAllHiraganaChange}
 			/>
@@ -76,6 +76,8 @@ const Hiragana: React.FC = () => {
 					shouldActivate={dakutenHiraganaActive || allHiraganaActive}
 					data={dakuten}
 					handleMultipleChange={handleDakutenHiraganaChange}
+					columnCount="oneColumn"
+					classList={`mb-2 ${dakutenHiraganaActive ? "checked" : ""}`}
 				/>
 				<CheckboxGroup
 					title="Combination"
