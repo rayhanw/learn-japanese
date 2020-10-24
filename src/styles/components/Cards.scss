@@ -17,9 +17,9 @@
 	@extend .blueBackground;
 
 	flex-direction: column;
-	padding: 1rem;
+	padding: 0.75rem;
 	margin: 0.5rem;
 	border-radius: var(--border-radius-md);
-	max-width: 2rem;
-	max-height: 2rem;
+	width: 2rem;
+	height: 2rem;
 }
