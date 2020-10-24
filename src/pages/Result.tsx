@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useGlobalStateContext } from "../contexts/globalState/globalState";
 import { useHistory, useParams } from "react-router-dom";
 import { Head } from "../components/Head";
@@ -18,6 +18,13 @@ const Result: React.FC = () => {
 		dispatch({ type: "CLEAR_ALL" });
 		history.push("/");
 	};
+
+	useEffect(() => {
+		window.scrollTo({
+			behavior: "smooth",
+			top: 0
+		});
+	}, []);
 
 	return (
 		<div id="resultPage">
