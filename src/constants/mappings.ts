@@ -254,8 +254,8 @@ export const KATAKANA_MAPPING = {
 		},
 		da: {
 			da: "ダ",
-			di: "ジ",
-			du: "ズ",
+			di: "ヂ",
+			du: "ヅ",
 			de: "デ",
 			do: "ド"
 		},
