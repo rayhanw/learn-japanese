@@ -33,7 +33,7 @@ export type Action =
 			payload: { type: "hiragana" | "katakana" };
 	  }
 	| { type: "ADD_RESULT"; payload: QuizResultPayload }
-	| { type: "CLEAR_RESULT" };
+	| { type: "CLEAR_ALL" };
 
 export interface StateContext {
 	hiragana: { kata: string[] };

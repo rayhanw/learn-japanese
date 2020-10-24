@@ -15,7 +15,7 @@ const Result: React.FC = () => {
 	const capitalizedType = type[0].toUpperCase() + type.substr(1);
 
 	const restart = () => {
-		dispatch({ type: "CLEAR_RESULT" });
+		dispatch({ type: "CLEAR_ALL" });
 		history.push("/");
 	};
 

@@ -134,14 +134,11 @@ export const reducer = (state: StateContext, action: Action) => {
 					}
 				}
 			};
-		case "CLEAR_RESULT":
+		case "CLEAR_ALL":
 			return {
-				...state,
-				result: {
-					main: {},
-					dakuten: {},
-					dakutenCombination: {}
-				}
+				hiragana: { kata: [] },
+				katakana: { kata: [] },
+				result: { dakuten: {}, dakutenCombination: {}, main: {} }
 			};
 		default:
 			return state;
