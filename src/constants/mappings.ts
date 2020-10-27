@@ -300,10 +300,10 @@ export const KATAKANA_MAPPING = {
 			myu: "ミュ",
 			myo: "ミョ"
 		},
-		dzya: {
-			dzya: "ヂャ",
-			dzyu: "ヂュ",
-			dzyo: "ヂョ"
+		dya: {
+			dya: "ヂャ",
+			dyu: "ヂュ",
+			dyo: "ヂョ"
 		},
 		cha: {
 			cha: "チャ",
