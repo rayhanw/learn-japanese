@@ -77,7 +77,7 @@ export const HIRAGANA_MAPPING = {
 		},
 		za: {
 			za: "ざ",
-			zi: "じ",
+			ji: "じ",
 			zu: "ず",
 			ze: "ぜ",
 			zo: "ぞ"
