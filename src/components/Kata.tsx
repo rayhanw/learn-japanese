@@ -69,6 +69,7 @@ export const Kata: React.FC<KataProps> = ({ japanese, answer }) => {
 
 	return (
 		<div
+			role="button"
 			className={`kata ${labelClass} ${isFocused ? "focus" : ""}`}
 			onFocus={handleFocus}
 			onBlur={handleFocus}

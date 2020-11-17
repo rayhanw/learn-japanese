@@ -59,11 +59,13 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
 	return (
 		<label
+			htmlFor={text}
 			className={`checkboxWrapper ${
 				localChecked ? "checked" : ""
 			} ${classList}`}
 		>
 			<input
+				id={text}
 				type="checkbox"
 				className="checkbox"
 				onChange={handleChange}

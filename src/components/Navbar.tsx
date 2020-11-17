@@ -19,8 +19,9 @@ export const Navbar: React.FC = () => {
 					</li>
 				))}
 			</ul>
-			<label className="switch">
+			<label htmlFor={`${theme}-input`} className="switch">
 				<input
+					id={`${theme}-input`}
 					type="checkbox"
 					checked={theme === "dark"}
 					onChange={toggleTheme}
