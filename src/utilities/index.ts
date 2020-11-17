@@ -1,17 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { HIRAGANA_MAPPING, KATAKANA_MAPPING } from "../constants";
 
-export function shuffle<T>(array: T[]): T[] {
-	return array.sort(() => Math.random() - 0.5);
-}
+export const shuffle = (array: any[]) => array.sort(() => Math.random() - 0.5);
 
 export const mapActiveToValues = (
 	type: "katakana" | "hiragana",
 	activeKata: string[],
 	key: "main" | "dakuten" | "dakutenCombination"
-): Record<string, string>[] => {
+) => {
 	const kataToBeInputted: Record<string, string>[] = [];
-	const keys = Object.keys(
+	let keys = Object.keys(
 		type === "hiragana" ? HIRAGANA_MAPPING[key] : KATAKANA_MAPPING[key]
 	);
 
