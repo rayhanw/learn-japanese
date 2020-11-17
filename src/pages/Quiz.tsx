@@ -36,6 +36,7 @@ const Quiz: React.FC = () => {
 				shuffle<Record<string, string>>(allActiveKata)
 			);
 		});
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
