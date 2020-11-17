@@ -32,7 +32,9 @@ const Quiz: React.FC = () => {
 
 			const allActiveKata = [...main, ...dakuten, ...combination, ...prevState];
 
-			return shuffle(shuffle(allActiveKata));
+			return shuffle<Record<string, string>>(
+				shuffle<Record<string, string>>(allActiveKata)
+			);
 		});
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);

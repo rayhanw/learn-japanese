@@ -17,12 +17,12 @@ const ThemeContext = React.createContext<ThemeContext>({
 });
 ThemeContext.displayName = "ThemeContext";
 
-export const useThemeContext = () => useContext(ThemeContext);
+export const useThemeContext = (): ThemeContext => useContext(ThemeContext);
 export const ThemeContextProvider = ({
 	children
 }: {
 	children: React.ReactNode;
-}) => {
+}): JSX.Element => {
 	const preferDark =
 		window && window.matchMedia("(prefers-color-scheme: dark)").matches;
 	const [theme, setTheme] = useLocalStorage(
@@ -40,7 +40,7 @@ export const ThemeContextProvider = ({
 	);
 
 	return (
-		<ThemeContext.Provider value={contextValue}>
+		<ThemeContext.Provider value={contextValue as ThemeContext}>
 			{children}
 		</ThemeContext.Provider>
 	);
