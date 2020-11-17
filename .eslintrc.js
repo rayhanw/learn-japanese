@@ -8,8 +8,7 @@ module.exports = {
 		"eslint:recommended",
 		"plugin:react/recommended",
 		"plugin:@typescript-eslint/eslint-recommended",
-		"plugin:@typescript-eslint/recommended",
-		"plugin:jsx-a11y/recommended"
+		"plugin:@typescript-eslint/recommended"
 	],
 	parser: "@typescript-eslint/parser",
 	parserOptions: {
@@ -19,7 +18,7 @@ module.exports = {
 		ecmaVersion: 12,
 		sourceType: "module"
 	},
-	plugins: ["react", "@typescript-eslint", "react-hooks", "jsx-a11y"],
+	plugins: ["react", "@typescript-eslint", "react-hooks"],
 	rules: {
 		"react/prop-types": "off"
 	},
