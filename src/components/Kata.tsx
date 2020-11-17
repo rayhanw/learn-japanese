@@ -38,7 +38,6 @@ export const Kata: React.FC<KataProps> = ({ japanese, answer }) => {
 
 	useDidMountEffect(() => {
 		let group: "main" | "dakuten" | "dakutenCombination";
-		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		let keys: any;
 		let mainKey: {
 			main: "mainHiragana" | "mainKatakana";
