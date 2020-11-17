@@ -7,12 +7,12 @@ const Landing: React.FC = () => {
 		<div id="landingPage">
 			<Head title="Home" />
 			<h1 className="textCenter title">
-				Clone of Tofugu's Learn Hiragana Quiz (+ Katakana)
+				Clone of Tofugu&apos;s Learn Hiragana Quiz (+ Katakana)
 			</h1>
 			<div className="squashedIn">
 				<p>
-					If you haven't heard about Tofugu and want to learn Japanese, please
-					take your time and read{" "}
+					If you haven&apos;t heard about Tofugu and want to learn Japanese,
+					please take your time and read{" "}
 					<a
 						href="https://www.tofugu.com/learn-japanese/"
 						rel="noreferrer noopener"

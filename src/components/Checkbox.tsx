@@ -42,7 +42,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 	};
 
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		if (!!handleMultipleChange) {
+		if (handleMultipleChange) {
 			handleMultipleChange();
 		} else {
 			handleOneChange(e);
