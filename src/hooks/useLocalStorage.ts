@@ -1,6 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 
-export const useLocalStorage = (name: string, initialValue: string) => {
+export const useLocalStorage = (
+	name: string,
+	initialValue: string
+): [any, React.Dispatch<any>] => {
 	const windowGlobal = typeof window !== "undefined" && window;
 	const [value, setValue] = useState(() => {
 		if (windowGlobal) {
