@@ -1,4 +1,5 @@
 import { HIRAGANA_MAPPING, KATAKANA_MAPPING } from "../constants";
+export { i18n } from "./i18n";
 
 export const shuffle = (array: any[]) => array.sort(() => Math.random() - 0.5);
 

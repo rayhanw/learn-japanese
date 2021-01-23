@@ -1,0 +1,19 @@
+{
+	"translation": {
+		"navbar": {
+			"home-link": "Home",
+			"hiragana-link": "Hiragana",
+			"katakana-link": "Katakana"
+		},
+		"title": "Clone of Tofugu's Learn Hiragana Quiz (+ Katakana)",
+		"subtitle": "If you haven't heard about Tofugu and want to learn Japanese, please take your time and read",
+		"tofugu-link": "this article by Tofugu",
+		"choose": "Please choose one!",
+		"first": "first!",
+		"footer": {
+			"issue": "See an issue? Report",
+			"here": "here"
+		},
+		"kata-start": "Start Quiz!"
+	}
+}

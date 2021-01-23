@@ -138,7 +138,13 @@ export const reducer = (state: StateContext, action: Action) => {
 			return {
 				hiragana: { kata: [] },
 				katakana: { kata: [] },
-				result: { dakuten: {}, dakutenCombination: {}, main: {} }
+				result: { dakuten: {}, dakutenCombination: {}, main: {} },
+				language: state.language
+			};
+		case "CHANGE_LANGUAGE":
+			return {
+				...state,
+				language: action.payload
 			};
 		default:
 			return state;

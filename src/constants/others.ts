@@ -1,3 +1,6 @@
+import { Language } from "../contexts/globalState/types";
+import { i18n } from "../utilities";
+
 export const INSTRUCTIONS = [
 	"Type your answer in romaji in the card's text field",
 	"Press ENTER to submit",
@@ -8,15 +11,26 @@ export const INSTRUCTIONS = [
 
 export const LINKS = [
 	{
-		text: "Home",
+		code: "home-link",
 		url: "/"
 	},
 	{
-		text: "Hiragana",
+		code: "hiragana-link",
 		url: "/hiragana"
 	},
 	{
-		text: "Katakana",
+		code: "katakana-link",
 		url: "/katakana"
+	}
+];
+
+export const LANGUAGES: { code: Language; text: string }[] = [
+	{
+		code: "en",
+		text: "English"
+	},
+	{
+		code: "id",
+		text: "Bahasa Indonesia"
 	}
 ];

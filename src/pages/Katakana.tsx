@@ -5,9 +5,11 @@ import { CheckboxGroup } from "../components/CheckboxGroup";
 import { Head } from "../components/Head";
 import { KATAKANA_MAPPING } from "../constants";
 import { useGlobalStateContext } from "../contexts/globalState/globalState";
+import { useTranslation } from "react-i18next";
 
 const Katakana: React.FC = () => {
 	const { dispatch } = useGlobalStateContext();
+	const { t } = useTranslation();
 	const [allKatakanaActive, setAllKatakanaActive] = useState(false);
 	const [mainKatakanaActive, setMainKatakanaActive] = useState(false);
 	const [dakutenKatakanaActive, setDakutenKatakanaActive] = useState(false);
@@ -89,7 +91,7 @@ const Katakana: React.FC = () => {
 			</div>
 			<div className="relativeCenter">
 				<Link to="/quiz/katakana" className="btn btn-primary btn-lg">
-					Start Quiz!
+					{t("kata-start")}
 				</Link>
 			</div>
 		</div>

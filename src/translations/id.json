@@ -1,0 +1,19 @@
+{
+	"translation": {
+		"navbar": {
+			"home-link": "Beranda",
+			"hiragana-link": "Hiragana",
+			"katakana-link": "Katakana"
+		},
+		"title": "Klon dari \"Learn Hiragana Quiz\" oleh Tofugu (+ Katakana)",
+		"subtitle": "Kalau belum pernah dengar Tofugu dan ingin belajar bahasa Jepang, silahkan baca dahulu",
+		"tofugu-link": "artikel dari Tofugu",
+		"choose": "Pilih satu!",
+		"first": "",
+		"footer": {
+			"issue": "Lihat masalah? Laporkan",
+			"here": "disini"
+		},
+		"kata-start": "Mulai Quiz!"
+	}
+}

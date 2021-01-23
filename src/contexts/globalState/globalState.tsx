@@ -5,7 +5,8 @@ import { StateContext, Store } from "./types";
 const initialState: StateContext = {
 	hiragana: { kata: [] },
 	katakana: { kata: [] },
-	result: { main: {}, dakuten: {}, dakutenCombination: {} }
+	result: { main: {}, dakuten: {}, dakutenCombination: {} },
+	language: "en"
 };
 const GlobalStateContext = createContext<Store>({
 	state: initialState,

@@ -5,9 +5,11 @@ import { CheckboxGroup } from "../components/CheckboxGroup";
 import { Head } from "../components/Head";
 import { HIRAGANA_MAPPING } from "../constants";
 import { useGlobalStateContext } from "../contexts/globalState/globalState";
+import { useTranslation } from "react-i18next";
 
 const Hiragana: React.FC = () => {
 	const { dispatch } = useGlobalStateContext();
+	const { t } = useTranslation();
 	const [allHiraganaActive, setAllHiraganaActive] = useState(false);
 	const [mainHiraganaActive, setMainHiraganaActive] = useState(false);
 	const [dakutenHiraganaActive, setDakutenHiraganaActive] = useState(false);
@@ -89,7 +91,7 @@ const Hiragana: React.FC = () => {
 			</div>
 			<div className="relativeCenter">
 				<Link to="/quiz/hiragana" className="btn btn-primary btn-lg">
-					Start Quiz!
+					{t("kata-start")}
 				</Link>
 			</div>
 		</div>
