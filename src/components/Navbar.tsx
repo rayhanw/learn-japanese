@@ -17,7 +17,7 @@ export const Navbar: React.FC = () => {
 				{LINKS.map(({ code, url }, i) => (
 					<li key={i}>
 						<Link to={url} onClick={() => dispatch({ type: "CLEAR_ALL" })}>
-							{t(code)}
+							{t(`navbar.${code}`)}
 						</Link>
 					</li>
 				))}
