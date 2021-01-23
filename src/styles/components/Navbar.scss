@@ -14,65 +14,82 @@ nav {
 		}
 	}
 
-	.switch {
-		position: relative;
-		display: inline-block;
-		width: 60px;
-		height: 34px;
+	.navbar-togglers {
+		display: flex;
+		align-items: center;
 
-		input {
-			opacity: 0;
-			width: 0;
-			height: 0;
+		.language-switcher {
+			margin-right: var(--space-md);
+			display: flex;
+			align-items: center;
 
-			&:checked {
-				& + .slider {
-					background-color: var(--blue-secondary);
-					&:before {
-						-webkit-transform: translateX(26px);
-						-ms-transform: translateX(26px);
-						transform: translateX(26px);
-					}
-				}
-			}
-
-			&:focus {
-				& + .slider {
-					box-shadow: 0 0 1px var(--blue-secondary);
+			button {
+				&:last-of-type {
+					margin-left: var(--space-sm);
 				}
 			}
 		}
 
-		.slider {
-			outline: none;
-			position: absolute;
-			cursor: pointer;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			background-color: #ccc;
-			-webkit-transition: 0.4s;
-			transition: 0.4s;
+		.switch {
+			position: relative;
+			display: inline-block;
+			width: 60px;
+			height: 34px;
 
-			&.round {
-				border-radius: 34px;
+			input {
+				opacity: 0;
+				width: 0;
+				height: 0;
 
-				&:before {
-					border-radius: 50%;
+				&:checked {
+					& + .slider {
+						background-color: var(--blue-secondary);
+						&:before {
+							-webkit-transform: translateX(26px);
+							-ms-transform: translateX(26px);
+							transform: translateX(26px);
+						}
+					}
+				}
+
+				&:focus {
+					& + .slider {
+						box-shadow: 0 0 1px var(--blue-secondary);
+					}
 				}
 			}
 
-			&:before {
+			.slider {
+				outline: none;
 				position: absolute;
-				content: "";
-				height: 26px;
-				width: 26px;
-				left: 4px;
-				bottom: 4px;
-				background-color: white;
+				cursor: pointer;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background-color: #ccc;
 				-webkit-transition: 0.4s;
 				transition: 0.4s;
+
+				&.round {
+					border-radius: 34px;
+
+					&:before {
+						border-radius: 50%;
+					}
+				}
+
+				&:before {
+					position: absolute;
+					content: "";
+					height: 26px;
+					width: 26px;
+					left: 4px;
+					bottom: 4px;
+					background-color: white;
+					-webkit-transition: 0.4s;
+					transition: 0.4s;
+				}
 			}
 		}
 	}
