@@ -20,7 +20,7 @@ const Landing: React.FC = () => {
 					>
 						{t("tofugu-link")}
 					</a>{" "}
-					first!
+					{t("first")}
 				</p>
 			</div>
 			<section className="mt-3">
