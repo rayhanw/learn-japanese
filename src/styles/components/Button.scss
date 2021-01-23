@@ -21,6 +21,10 @@ a.btn {
 		}
 	}
 
+	&.btn-float {
+		color: var(--blue-secondary);
+	}
+
 	&.btn-lg {
 		width: 200px;
 		height: 60px;

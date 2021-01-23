@@ -24,8 +24,18 @@ nav {
 			align-items: center;
 
 			button {
+				transition: all 0.25s ease;
+
 				&:last-of-type {
 					margin-left: var(--space-sm);
+				}
+
+				&.chosen {
+					@extend .btn-primary;
+				}
+
+				&.inactive {
+					color: var(--yellow-primary);
 				}
 			}
 		}
