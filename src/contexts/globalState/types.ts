@@ -1,3 +1,4 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 interface QuizResult {
 	main: Record<string, boolean>;
 	dakuten: Record<string, boolean>;
@@ -19,6 +20,8 @@ type RemoveMultipleActionTypes =
 	| "REMOVE_DAKUTEN"
 	| "REMOVE_COMBINATION";
 
+export type Language = "en" | "id";
+
 export type Action =
 	| {
 			type: "ADD_KATA" | "REMOVE_KATA";
@@ -33,12 +36,14 @@ export type Action =
 			payload: { type: "hiragana" | "katakana" };
 	  }
 	| { type: "ADD_RESULT"; payload: QuizResultPayload }
-	| { type: "CLEAR_ALL" };
+	| { type: "CLEAR_ALL" }
+	| { type: "CHANGE_LANGUAGE"; payload: Language };
 
 export interface StateContext {
 	hiragana: { kata: string[] };
 	katakana: { kata: string[] };
 	result: QuizResult;
+	language: Language;
 }
 
 export interface Store {
